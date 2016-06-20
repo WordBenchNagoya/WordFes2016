@@ -1,0 +1,112 @@
+@charset 'utf-8';
+
+@import 'variables';
+@import 'sidebar';
+
+
+header {
+	height: 415px;
+	background: url(../images/common/bg-header.png) center center repeat-x;
+	
+	.main-image {
+		position: relative;
+		height: 357px;
+	}
+	
+	#signboard {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 600px;
+		height: 320px;
+		margin: auto;
+		padding: 30px 75px 50px;
+		background: url(../images/common/bg-signboard.png) center center no-repeat;
+	}
+	
+	.site-title {
+		width: 100%;
+		
+		img {
+			width: 70%;
+			height: auto;
+		}
+	}
+	
+	.page-title {
+		line-height: .8;
+		font-weight: normal;
+		font-size: $fs-34;
+		color: #046a37;
+		
+		span {
+			font-size: $fs-16;
+			color: #777;
+		}
+	}
+	
+	#site-navigation {
+	
+		ul {
+			padding: 10px 0 5px;
+			background: #fff;
+			border-radius: 10px;
+		}
+	}
+} // header
+
+#primary {
+	width: $contentWidth;
+	margin: auto;
+}
+
+#main {
+	
+	.section {
+		margin-bottom: 50px;
+	}
+	
+	.section-inner {
+		
+		.page-title {
+			padding: 0 10px 25px;
+			background: url(../images/common/bg-pagetitle.png) center bottom no-repeat;
+		}
+		
+		.sub-title {
+			margin-top: 30px;
+			padding: 15px 10px;
+			background: #f4f4f4 url(../images/common/bg-subtitle.png) left center no-repeat;
+		}
+	}
+} // #main
+
+@media screen and ( max-width: 767px ) {
+	
+	.site-header {
+		height: auto;
+		
+		#signboard {
+			width: 100%;
+			height: auto;
+			padding: 20px 30px 50px;
+			background-size: 100% auto;
+			
+			.site-title {
+				margin-bottom: 10px;
+			}
+		}
+	}
+	
+	#primary {
+		width: 100%;
+	}
+	
+	#main {
+		
+		.section {
+			margin-bottom: 0;
+		}
+	}
+}
