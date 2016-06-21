@@ -20,6 +20,12 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="<?php echo esc_attr( the_title() ); ?>" /><!-- 必須 -->
+<meta property="og:type" content="website" /><!-- 必須 -->
+<meta property="og:description" content="名古屋の夏と言えば WordFes Nagoya 2016 今年もやります。" />
+<meta property="og:url" content="<?php echo esc_url( home_url('/') ); ?>" /><!-- 必須 -->
+<meta property="og:image" content="<?php echo esc_url( home_url('/og_image.png') ); ?>" /><!-- 必須 -->
+<meta property="og:site_name" content="<?php echo get_bloginfo('name'); ?>" />
 <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" type="image/vnd.microsoft.icon" />
 <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" type="image/vnd.microsoft.icon" />
 <link rel="profile" href="http://gmpg.org/xfn/11">
