@@ -28,21 +28,21 @@ function wordfes2016_taxonomy() {
 	 */
 
 	$sponsor_labels = array(
-		'name'                       => 'サポーターカテゴリ',
-		'singular_name'              => 'サポーターカテゴリ',
-		'menu_name'                  => 'サポーターカテゴリ', 
-		'all_items'                  => 'すべてのサポーターカテゴリ', 
-		'parent_item'                => '親サポーターカテゴリ', 
-		'parent_item_colon'          => '親サポーターカテゴリ:', 
-		'new_item_name'              => '新しいサポーターカテゴリ', 
-		'add_new_item'               => '新しいサポーターカテゴリを追加', 
-		'edit_item'                  => 'サポーターカテゴリを編集', 
-		'update_item'                => 'サポーターカテゴリを更新', 
+		'name'                       => 'サポーターオプション',
+		'singular_name'              => 'サポーターオプション',
+		'menu_name'                  => 'サポーターオプション', 
+		'all_items'                  => 'すべてのサポーターオプション', 
+		'parent_item'                => '親サポーターオプション', 
+		'parent_item_colon'          => '親サポーターオプション:', 
+		'new_item_name'              => '新しいサポーターオプション', 
+		'add_new_item'               => '新しいサポーターオプションを追加', 
+		'edit_item'                  => 'サポーターオプションを編集', 
+		'update_item'                => 'サポーターオプションを更新', 
 		'separate_items_with_commas' => 'アイテムをカンマで区切る', 
-		'search_items'               => 'サポーターカテゴリを検索', 
+		'search_items'               => 'サポーターオプションを検索', 
 		'add_or_remove_items'        => '追加、または削除', 
 		'choose_from_most_used'      => 'Choose from the most used items', 
-		'not_found'                  => 'サポーターカテゴリ見つかりませんでした。', 
+		'not_found'                  => 'サポーターオプション見つかりませんでした。', 
 	);
 	$sponsor_args = array(
 		'labels'                     => $sponsor_labels,
@@ -55,7 +55,7 @@ function wordfes2016_taxonomy() {
 	);
 
 	// register "sponsor" category
-	register_taxonomy( 'suporter_category', array( 'suporter' ), $sponsor_args );
+	register_taxonomy( 'supporter_option', array( 'supporter' ), $sponsor_args );
 
 	/**
 	 * suporter type labels
@@ -90,7 +90,7 @@ function wordfes2016_taxonomy() {
 	);
 
 	// register "sponsor" category
-	register_taxonomy( 'suporter_type', array( 'suporter' ), $sponsor_type_args );
+	register_taxonomy( 'supporter_type', array( 'supporter' ), $sponsor_type_args );
 
 	/**
 	 * Target category labels

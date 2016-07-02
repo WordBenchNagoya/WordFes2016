@@ -24,7 +24,7 @@ function wordfes2016_setup() {
 	 * hard-coded <title> tag in the document head, and expect WordPress to
 	 * provide it for us.
 	 */
-	add_theme_support( 'title-tag' );
+	 //add_theme_support( 'title-tag' );
 
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
@@ -97,14 +97,23 @@ function wordfes2016_scripts() {
 
 	// css
 	wp_enqueue_style( 'wfn2016-base', get_template_directory_uri() . '/css/base.css' );
+	wp_enqueue_style( 'wfn2016-supporter', get_template_directory_uri() . '/css/supporter.css' );
 	
-	if( is_home() || is_front_page() ) {
+	if( is_front_page() ) {
 		
 		wp_enqueue_style( 'wfn2016-home', get_template_directory_uri() . '/css/home.css' );
 		
-	} elseif ( is_page() ) {
+	} else {
 		
 		wp_enqueue_style( 'wfn2016-page', get_template_directory_uri() . '/css/page.css' );
+		
+		$post_type = get_query_var('post_type') ? get_query_var('post_type') : get_query_var('pagename');
+		
+		if ( '' != $post_type ) {
+			
+			wp_enqueue_style( 'wfn2016-' . esc_attr( $post_type ), get_template_directory_uri() . '/css/' . esc_attr( $post_type ) . '.css' );
+			
+		}
 		
 	}
 
@@ -153,7 +162,7 @@ require get_template_directory() . '/inc/custom-shortcode.php';
 require get_template_directory() . '/inc/custom-function.php';
 
 /**
- * Load custom-function.
+ * Load custom-style.
  */
 require get_template_directory() . '/inc/custom-style.php';
 

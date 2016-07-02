@@ -7,14 +7,8 @@
 				</h1>
 				
 				<h2 class="page-title">
-					<?php echo esc_html( pdc_get_page_name() ); ?>
-					<?php
-					if ( is_page() ) {
-						echo "<br>\n";
-						echo "<span>\n";
-						echo "<span>" . esc_html( strtoupper( pdc_get_page_id() ) ) . "</span>\n";
-					}
-					?>
+					<?php echo esc_html( pdc_get_page_name() ); ?><br>
+					<span><?php echo esc_html( strtoupper( pdc_get_page_slug() ) ); ?></span>
 				</h2>
 			</div>
 			

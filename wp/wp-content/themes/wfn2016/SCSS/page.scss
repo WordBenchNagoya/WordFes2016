@@ -59,25 +59,119 @@ header {
 #primary {
 	width: $contentWidth;
 	margin: auto;
+
+/*
+	.section {
+		
+		&:nth-child(odd) {
+			
+			background: #fff;
+			
+		}
+		
+		&:nth-child(even) {
+			background: $bgColor;
+		}
+	} // .section
+*/
 }
+
+#secondary {
+	width: 100%;
+	margin: auto;
+	
+	.section {
+		padding: 30px 20px;
+		background: $bgColor;
+	}
+}
+
 
 #main {
 	
+	.page-title {
+		padding: 25px 10px 25px;
+		background: url(../images/common/bg-pagetitle.png) center bottom no-repeat;
+	}
+		
 	.section {
 		margin-bottom: 50px;
 	}
 	
 	.section-inner {
 		
-		.page-title {
-			padding: 0 10px 25px;
-			background: url(../images/common/bg-pagetitle.png) center bottom no-repeat;
-		}
-		
 		.sub-title {
 			margin-top: 30px;
 			padding: 15px 10px;
 			background: #f4f4f4 url(../images/common/bg-subtitle.png) left center no-repeat;
+		}
+	}
+	
+	/*
+	// シングルページ
+	*/
+	.article-header {
+		margin: 0;
+		padding: 0 0 5px;
+		border-bottom: 3px solid #94c554;
+	}
+	
+	.article-title {
+		margin-bottom: 0;
+		padding: 15px 0 15px 70px;
+		background: url(../images/common/bg-article-title.png) left center no-repeat;
+		font-size: $fs-28;
+		font-weight: 700;
+	}
+	
+	.article-date {
+		margin: 0;
+		padding: 0;
+	}
+	
+	.social {
+		padding: 10px 0;
+		
+		.sns-button {
+			display: inline-block;
+		}
+		
+		.fb-like {
+			overflow: hidden !important;
+		}
+		
+		.twitter {
+			
+		}
+	}
+	
+	.article-content {
+		margin: 25px 0;
+		line-height: 1.8;
+	}
+	
+	.page-navi {
+		padding: 10px 0;
+		border-top: 3px solid #94c554;
+		
+		.prev {
+			padding-left: 0;
+			
+			a {
+				display: block;
+				padding-left: 25px;
+				background: url(../images/common/bg-prev.png) left .1em no-repeat;
+			}
+		}
+		
+		.next {
+			padding-right: 0;
+			
+			a {
+				display: block;
+				padding-right: 25px;
+				background: url(../images/common/bg-next.png) right .1em no-repeat;
+			}
 		}
 	}
 } // #main

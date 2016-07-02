@@ -57,7 +57,7 @@ function wordfes2016_post_type_init() {
 	 */
 	$suporter_labels = array(
 		'name' => 'サポーター',
-		'singular_name' => 'suporter',
+		'singular_name' => 'supporter',
 		'add_new' => '新しいサポーター',
 		'add_new_item' => '新しいサポーターを登録',
 		'edit_item' => '新しいサポーターを編集',
@@ -85,7 +85,7 @@ function wordfes2016_post_type_init() {
 		'supports' => array( 'title', 'editor', 'author' )
 	);
 
-	register_post_type( 'suporter', $suporter_args );
+	register_post_type( 'supporter', $suporter_args );
 
 
 	/*

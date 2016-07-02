@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: ホーム
+Template Name: スタッフブログ
 */
 
 /**
@@ -14,62 +14,38 @@ get_header(); ?>
 	<div id="primary">
 		
 		<main id="main">
-		<?php
-		//　固定ページのスラッグが'home'の親ページと子ページを表示する
-		$page_slug =  get_page_by_path( 'home' );
+			
+			<?php
+			if( get_query_var('pagename') ) {
+				
+				$page = get_page_by_path( get_query_var('pagename') );
+				$page_name = $page->page_title;
+			
+			}
+			?>
 		
-		if ( ! empty( $page_slug ) ) {
+			<h1 class="page-title"><?php echo esc_html( $page_name ); ?></h1>
 			
-			$parent_ID = $page_slug->ID;
+			<div class="section">
+			
+			<?php
+			if( have_posts() ):
+				while ( have_posts() ) : the_post();
+			?>
 
-			if ( is_user_logged_in() ) {
-				$post_status = 'draft,publish';
-			} else {
-				$post_status = 'publish';
-			}
-			
-/*
-			$wfn_wp_query = new WP_Query();
-			$wfn_wp_pages = $wfn_wp_query->query( array(
-				'post_type'   => 'page',
-				'nopaging'    => 'true',
-				'post_status' => $post_status,
-			) );
+				<?php get_template_part( 'parts/content', 'archive' ); ?>
 
-			$page_children = get_page_children( $parent_ID, $wfn_wp_pages );
+			<?php
+				endwhile; // End of the loop.
+			else:
+			?>
+				<p>まだ、スタッフブログはありません。</p>
+			<?php
+			endif;
+			?>
 			
-			if ( ! empty( $page_children ) ) {
-				foreach ( $page_children as $children ) {
-					$page_home[] = $children->ID;
-				}
-			}
-*/
-			
-			$args = array(
-				'child_of'    => $parent_ID,
-				'sort_column' => 'menu_order', // 固定ページの順序でソート
-				'sort_order'  => 'asc',
-				'post_type'   => 'page',
-				'post_status' => $post_status,
-			);
-
-			$wfnposts = get_pages( $args );
-			
-			$sec_count = 1;
-
-			foreach( $wfnposts as $post ) {
-				
-				setup_postdata( $post );
-				
-				//var_dump($post);
-				
-				set_query_var( 'sec_count', $sec_count );
-				get_template_part( 'parts/content', 'home' );
-				
-				$sec_count++;
-				
-			}
-		} ?>
+			</div>
+		
 		</main><!-- #main -->
 		
 	</div><!-- #primary -->

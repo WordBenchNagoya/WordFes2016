@@ -18,14 +18,26 @@
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
 <head>
+<?php
+if ( is_front_page() ) {
+	
+	$title = 'WordFes Nagoya 2016 | WordPress の森に集おう！';
+	
+} else {
+	
+	$title = get_the_title() . ' | WordFes Nagoya 2016'; 
+	
+}
+?>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="<?php echo esc_attr( the_title() ); ?>" /><!-- 必須 -->
+<meta property="og:title" content="<?php echo esc_attr( $title ); ?>" /><!-- 必須 -->
 <meta property="og:type" content="website" /><!-- 必須 -->
 <meta property="og:description" content="名古屋の夏と言えば WordFes Nagoya 2016 今年もやります。" />
 <meta property="og:url" content="<?php echo esc_url( home_url('/') ); ?>" /><!-- 必須 -->
 <meta property="og:image" content="<?php echo esc_url( home_url('/og_image.png') ); ?>" /><!-- 必須 -->
 <meta property="og:site_name" content="<?php echo get_bloginfo('name'); ?>" />
+<title><?php echo esc_html( $title ); ?></title>
 <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" type="image/vnd.microsoft.icon" />
 <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" type="image/vnd.microsoft.icon" />
 <link rel="profile" href="http://gmpg.org/xfn/11">
@@ -37,7 +49,7 @@
 <?php wp_head(); ?>
 </head>
 
-<body id="<?php echo esc_attr( pdc_get_page_id() ); ?>" <?php body_class(); ?>>
+<body id="<?php echo esc_attr( pdc_get_page_slug() ); ?>" <?php body_class(); ?>>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -52,7 +64,7 @@
 	<header class="site-header">
 		
 		<?php
-		if ( is_home() || is_front_page() ) {
+		if ( is_front_page() ) {
 			
 			get_template_part( 'parts/header', 'home' );
 			

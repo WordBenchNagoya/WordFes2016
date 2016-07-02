@@ -39,13 +39,15 @@ function pdc_article_list( $atts ) {
 	
 	if ( is_user_logged_in() ) {
 		
-		$status = array( 'publish', 'pending', 'draft' );
+		$status = array( 'publish', 'pending', 'draft', 'private' );
 		
 	} else {
 		
 		$status = array( 'publish' );
 		
 	}
+	
+	$post_type_name = get_post_type_object( $post_type )->labels->name;
 	
 	$args = array(
 		'post_type'      => $post_type,
@@ -64,8 +66,7 @@ function pdc_article_list( $atts ) {
 			$result .= "  <li>\n";
 			$result .= "    <p class=\"date\">" . get_the_time( 'Y.m.d' ) . "</p>\n";
 			$result .= "    <p class=\"title\">";
-			//$result .= "      <a href=\"" . get_the_permalink() . "\">" . get_the_title() . "</a>\n";
-			$result .= "      " . get_the_title();
+			$result .= "      <a href=\"" . get_the_permalink() . "\">" . get_the_title() . "</a>\n";
 			$result .= "    </p>\n";
 			$result .= "  </li>\n";
 			
@@ -74,7 +75,7 @@ function pdc_article_list( $atts ) {
 		$result .= "</ul>";
 		
 	else:
-		$result = "<ul><li>まだ、記事がありません。<br>しばらくお待ちください。</li></ul>\n";
+		$result = "<ul><li>まだ、{$post_type_name}はありません。<br>しばらくお待ちください。</li></ul>\n";
 	endif;
 	
 	return $result;

@@ -11,4 +11,36 @@
 		background: #94c554;
 		color: #fff;
 	}
+	
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		text-align: left;
+		
+		li {
+			margin: 0;
+			padding: 0;
+			
+			&.current_page_item a {
+				background: #ecfada;
+			}
+			
+			a {
+				display: block;
+				padding: 5px 5px 5px 17px;
+				background-color: #f4f4f4;
+				background-image:  url(../images/common/list-mark-gr.png);
+				background-position:  5px .75em;
+				background-repeat: no-repeat;
+				color: $textColor;
+				
+				&:hover {
+					background-color: #ecfada;
+					color: $textColor;
+					text-decoration: none;
+				}
+			}
+		}
+	}
 }
