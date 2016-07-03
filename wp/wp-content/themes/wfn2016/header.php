@@ -86,9 +86,9 @@ if ( is_front_page() ) {
 						</a>
 					</li>
 					<li class="col-md-2 col-xs-12">
-						<!-- <a href="<?php echo esc_url( home_url('/about') ); ?>"> -->
+						<a href="<?php echo esc_url( home_url('/about') ); ?>">
 							<img class="swap" src="<?php echo get_template_directory_uri(); ?>/images/navigation/nav-about.png" alt="開催概要">
-						<!-- </a> -->
+						</a>
 					</li>
 					<li class="col-md-2 col-xs-12">
 						<!-- <a href="<?php echo esc_url( home_url('/timetable') ); ?>"> -->
