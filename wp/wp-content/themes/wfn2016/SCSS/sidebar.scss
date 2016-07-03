@@ -23,7 +23,10 @@
 			padding: 0;
 			
 			&.current_page_item a {
-				background: #ecfada;
+				background-color: #ecfada;
+				background-image:  url(../images/common/list-mark-gr.png);
+				background-position:  5px .75em;
+				background-repeat: no-repeat;
 			}
 			
 			a {
