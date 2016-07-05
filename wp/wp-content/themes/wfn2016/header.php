@@ -96,9 +96,9 @@ if ( is_front_page() ) {
 						<!-- </a> -->
 					</li>
 					<li class="col-md-2 col-xs-12">
-						<!-- <a href="<?php echo esc_url( home_url('/access') ); ?>"> -->
+						<a href="<?php echo esc_url( home_url('/access') ); ?>">
 							<img class="swap" src="<?php echo get_template_directory_uri(); ?>/images/navigation/nav-access.png" alt="アクセス">
-						<!-- </a> -->
+						</a>
 					</li>
 					<li class="col-md-2 col-xs-12">
 						<a href="<?php echo esc_url( home_url('/supporter') ); ?>">

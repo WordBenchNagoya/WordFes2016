@@ -18,6 +18,10 @@ table th { text-align: center; }
 
 #page { width: 100%; margin: 0 auto; padding: 0; }
 
+.entry-header { display: none; }
+
+.tix-submit { padding: 20px 0; text-align: center !important; }
+
 /* ヘッダー */
 header { /* ヘッダーナビゲーション */ }
 header #site-navigation ul { width: 1000px; margin: auto; padding: 0; list-style-type: none; }

@@ -61,6 +61,20 @@ table {
 	padding: 0;
 }
 
+.entry-header {
+	display: none;
+}
+
+.tix-submit {
+	padding: 20px 0;
+	text-align: center !important;
+	
+	input[type="submit"] {
+		//background-color: #c33;
+		//border: none;
+	}
+}
+
 
 /*
  * ヘッダー

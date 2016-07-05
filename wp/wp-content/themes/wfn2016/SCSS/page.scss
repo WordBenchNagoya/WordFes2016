@@ -4,7 +4,7 @@
 @import 'sidebar';
 
 
-header {
+.site-header {
 	height: 415px;
 	background: url(../images/common/bg-header.png) center center repeat-x;
 	
@@ -100,7 +100,7 @@ header {
 	
 	.section-inner {
 		
-		.sub-title {
+		h2 {
 			margin-top: 30px;
 			padding: 15px 10px;
 			background: #f4f4f4 url(../images/common/bg-subtitle.png) left center no-repeat;

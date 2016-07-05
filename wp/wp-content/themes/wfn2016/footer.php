@@ -54,7 +54,38 @@ function(){
 	jQuery(this).attr("src", url.replace("-over.png", ".png"));
 	
 });
+
+jQuery("#tix-entry-form").submit(function(){
+	
+	jQuery("#error-message").html("&nbsp;");
+	
+	var checked = 0;
+	
+	jQuery(".ticket-quantity").each(function(){
+		
+		if ( jQuery(this).is(':checked') ) {
+			
+			checked++;
+			
+		}
+		
+	});
+	
+	if ( 0 == checked) {
+		
+		jQuery("#error-message").html("チケットを選択してください。");
+		console.log("Error !");
+		return false;
+	
+	} else {
+		
+		console.log("OK");
+	
+	}
+	
+});
 </script>
+
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -66,5 +97,6 @@ function(){
   ga('send', 'pageview');
 
 </script>
+
 </body>
 </html>
