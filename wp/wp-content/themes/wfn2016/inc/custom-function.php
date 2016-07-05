@@ -170,63 +170,65 @@ function add_page_column( $column_name, $post_id ) {
 add_action( 'manage_pages_custom_column', 'add_page_column', 10, 2);
 
 
-/*
- *  PRE GET POSTS
- */
 //--------------------------------------------------------
-// PRE_GET_POSTS
+// 投稿一覧で表示する項目をカスタマイズ
 //--------------------------------------------------------
-function custom_pre_get_posts( $query ) {
-
-	if ( ! is_admin() ) {
+function manage_posts_columns($columns) {
+	unset($columns['tags']);
+	unset($columns['comments']);
+	
+	global $post;
+	
+	if ( 'supporter' == $post->post_type ) { // ポストタイプを指定
+	
+		$date_escape = $columns['date']; // 日付を避難
+		$author_escape = $columns['author']; // 投稿者を退避
+		$type_escape   = $columns['supporter_type'];
+		$option_escape = $columns['supporter_option'];
 		
-		if ( is_user_logged_in() ) {
-			
-			//echo 'Do function.';
-			
-			$query->set( 'post_status', array( 'pending', 'draft', 'private', 'publish' ) );
-			
-		}
-
-		if ( $query->is_search() ) {
-			
-		} elseif ( ( $query->is_front_page() || $query->is_home() ) ) {
-			
-			//echo 'Front Page or Home Page';
+		unset($columns['date']); // 消す
+		unset($columns['author']); // 消す
+		unset($columns['supporter_type']);
+		unset($columns['supporter_option']);
 		
-		} elseif ( $query->is_category() ) {
+		$columns['display'] = '表示';
+		
+		$columns['author']  = $author_escape; // ここで投稿者を戻す
+		$columns['date']    = $date_escape; // ここで日付を戻す
+		
+	}
+	
+	return $columns;
+}
+add_filter( 'manage_posts_columns', 'manage_posts_columns' );
+
+
+//--------------------------------------------------------
+// 投稿一覧で追加項目の内容を表示する
+//--------------------------------------------------------
+function inside_district_column( $column_name ) {
+	global $post;
+	
+	if ( 'supporter' == $post->post_type && 'display' == $column_name ) {
+
+		$anonym = get_post_meta( $post->ID, 'pdc-supporter-anonym', true );
+		
+		//var_dump($myMetaValue);
+		
+		if ( true == $anonym ) {
 			
-			//echo 'Category';
+			echo '匿名希望';
 			
-		} elseif ( $query->is_archive() ) {
+		} else {
 			
-			if ( 'news' == $query->query_vars['post_type'] ) {
-				
-				$query->set( 'posts_per_page', 5 );
-				//var_dump( get_query_var( 'nowmodel_category' ) );
-				
-			} elseif ( 'oldmodel' == $query->query_vars['post_type'] ) {
-				
-				$query->set( 'old_category', get_query_var('oldmodel_category') );
-				//var_dump( get_query_var( 'oldmodel_category' ) );
-				
-			}
-			
-		} elseif ( $query->is_single() ) {
-			
-			
+			echo '';
 			
 		}
 		
 	}
 	
-	//echo '<pre>'; var_dump( $query->query_vars['post_type'] ); echo '</pre>';
-	//echo '<pre>'; var_dump( $query ); echo '</pre>';
-	
-	return $query;
-	
 }
-add_action( 'pre_get_posts', 'custom_pre_get_posts' );
+add_action( 'manage_posts_custom_column', 'inside_district_column' );
 
 
 

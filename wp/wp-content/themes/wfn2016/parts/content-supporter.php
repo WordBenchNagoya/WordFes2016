@@ -32,8 +32,6 @@
 				
 			$supporter_opts = get_terms( 'supporter_option', array( 'hide_empty' => false, 'orderby' => 'order', 'order' => 'ASC') );
 		
-			$count = 0;
-		
 			foreach ( $supporter_opts as $key => $supporter_term ):
 			
 				/* サポーター */
@@ -53,9 +51,7 @@
 					),
 				);
 				
-				$count++;
-				
-				set_query_var( 'count', $count );
+				set_query_var( 'term_slug', $supporter_term->slug );
 				set_query_var( 'args', $args );
 				get_template_part( 'parts/loop', 'supporter' );
 				
@@ -63,8 +59,6 @@
 
 			// Get Sponsor Kind
 			$supporter_temrs = get_terms( 'supporter_type', array( 'hide_empty' => false, 'orderby' => 'order', 'order' => 'ASC') );
-		
-			$count = 0;
 		
 			foreach ( $supporter_temrs as $key => $supporter_term ):
 			
@@ -85,9 +79,9 @@
 					),
 				);
 				
-				$count++;
+				//echo '<!-- <pre>'; var_dump( $supporter_term ); echo '</pre> -->';
 				
-				set_query_var( 'count', $count );
+				set_query_var( 'term_slug', $supporter_term->slug );
 				set_query_var( 'args', $args );
 				get_template_part( 'parts/loop', 'supporter' );
 				

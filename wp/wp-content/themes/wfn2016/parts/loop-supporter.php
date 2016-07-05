@@ -1,6 +1,6 @@
 				<?php
 				$args      = get_query_var('args');
-				$count     = get_query_var('count');
+				$term_slug = get_query_var('term_slug');
 					
 				$the_query = new WP_Query( $args );
 				
@@ -8,11 +8,11 @@
 				
 					//echo '<pre style="text-align: left;">'; var_dump($the_query->query['tax_query'][0]['taxonomy']); echo '</pre>';
 
-					$number    = sprintf( "%02d", $count );
+					$number    = substr( $term_slug, -2 );
 					$item_id   = $the_query->posts[0]->ID;
 					$tax_type  = $the_query->query['tax_query'][0]['taxonomy'];
 					
-					//var_dump( $terms );
+					//echo '<!-- <pre>'; var_dump( $tmp ); echo '</pre> -->';
 					
 					if ( 'supporter_option' == $tax_type ) {
 						
@@ -30,24 +30,29 @@
 							<h3 class="supporter-title supporter-<?php echo esc_html( $add_name ); ?> col-sm-3">
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/images/supporter/title-sup-' . $add_name . '.png' ); ?>" alt="" />
 							</h3>
-							<div class="colmun-row col-sm-9 clearfix">
+							<?php if ( 'sup-type-02' == $term_slug ): ?>
+							<div class="column-person colmun-row col-sm-9 clearfix text-left">
+							<?php else: ?>
+							<div class="column-row col-sm-9 clearfix">
+							<?php endif; ?>
 							<?php
+							
+							$count = 0;
+							$anonym_count = 0;
+							
 							while ( $the_query->have_posts() ):
 								$the_query->the_post();
+								$count++;
+								
 								$add_class = ( 'draft' == $post->post_status ) ? ' draft' : '';
 								$add_class .= ' sup-' . $add_name;
 								$image     = wp_get_attachment_image_src( get_field( 'pdc-supporter-banner' ), 'full' );
+								$disp_flag = get_post_meta( get_the_ID(), 'pdc-supporter-anonym', true );
 								
-								$term      = array_shift( get_the_terms( get_the_ID(), 'supporter_type' ) );
-								$term_slug = $term->slug;
-								
-								if ( 'sup-type-02' == $term_slug ) {
+								if ( 'sup-type-02' == $term_slug && true == $disp_flag ) {
 									
-									$width = 'col-sm-4';
-									
-								} else {
-									
-									$width = 'col-sm-6';
+									$anonym_count++;
+									continue;
 									
 								}
 		
@@ -56,9 +61,16 @@
 								//var_dump($image);
 							?>
 								
-								<?php //echo '<pre>'; var_dump( get_post_custom() ); echo '</pre>'; ?>
-								
-									<div class="colmun <?php echo esc_attr( $width ); ?> text-center<?php echo esc_attr( $add_class ); ?>">
+								<?php if ( 'sup-type-02' == $term_slug ): ?>
+									<span class="person">
+									<?php if ( 1 != $count ){ echo '、'; } ?>
+										<a href="<?php echo esc_url( get_field( 'pdc-supporter-link' ) ) ?>" target="_blank" title="<?php the_title(); ?>">
+											<?php the_title(); ?>
+										</a>
+										 様
+									</span>
+								<?php else: ?>
+									<div class="column col-sm-6 text-center<?php echo esc_attr( $add_class ); ?>">
 										<a href="<?php echo esc_url( get_field( 'pdc-supporter-link' ) ) ?>" target="_blank" title="<?php the_title(); ?>">
 										<?php if ( $image ): ?>
 										<?php //var_dump($image); ?>
@@ -68,8 +80,12 @@
 										<?php endif; ?>
 										</a>
 									</div>
+								<?php endif; ?>
 							<?php
 							endwhile; ?>
+							<?php if ( 0 < $anonym_count ): ?>
+								<p class="anonym">※この他、匿名希望の<?php echo mb_convert_kana( $anonym_count, 'N' ); ?>名の方より、ご支援いただいております。</p>
+							<?php endif; ?>
 							</div>
 						</div>
 					</div>
