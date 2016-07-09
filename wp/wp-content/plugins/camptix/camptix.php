@@ -13,6 +13,7 @@
 $email_addr  = 'entry@wordfes.org';
 $this_year   = '2016';
 
+
 global $email_addr, $this_year;
 
 class CampTix_Plugin {
