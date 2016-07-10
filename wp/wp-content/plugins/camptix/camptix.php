@@ -10,8 +10,7 @@
  * License:     GPLv2
  */
 
-//$email_addr  = 'entry@wordfes.org';
-$email_addr  = 'piece.jp@gmail.com';
+$email_addr  = 'entry@wordfes.org';
 $this_year   = '2016';
 
 
