@@ -10,7 +10,8 @@
  * License:     GPLv2
  */
 
-$email_addr  = 'entry@wordfes.org';
+//$email_addr  = 'entry@wordfes.org';
+$email_addr  = 'piece.jp@gmail.com';
 $this_year   = '2016';
 
 
@@ -5268,6 +5269,8 @@ class CampTix_Plugin {
             <?php
             $ticket    = $this->tickets[ $ticket_id ];
             $questions = $this->get_sorted_questions( $ticket->ID );
+            
+            //var_dump($ticket->ID) // チケットの ID を調べる。;
             ?>
             <input type="hidden" name="tix_attendee_info[<?php echo $i; ?>][ticket_id]" value="<?php echo intval( $ticket->ID ); ?>"/>
             <table class="tix_tickets_table tix-attendee-form">
@@ -5332,6 +5335,8 @@ class CampTix_Plugin {
                     $type       = get_post_meta( $question->ID, 'tix_type', true );
                     $required   = get_post_meta( $question->ID, 'tix_required', true );
                     $class_name = 'tix-row-question-' . $question->ID;
+                    
+                    //echo '<pre>'; var_dump( $question ); echo '</pre>';
                     ?>
 
                     <tr class="<?php echo esc_attr( $class_name ); ?>">
@@ -5355,6 +5360,12 @@ class CampTix_Plugin {
 
           <?php endforeach; // range ?>
         <?php endforeach; // tickets_selected ?>
+        
+        <?php if ( 236 == $ticket->ID ): // <-- "236" は、宿泊チケットの ID です。毎年変わると思いますので、調べる必要あり。?>
+        	<p style="margin-top: 10px; text-align: center;">
+		        <strong style="color: red;">姓名、生年月日は保険の適用に必要です。かならず正しい本名と生年月日を入力してください。</strong>
+        	</p>
+        <?php endif; ?>
 
         <?php if ( $this->tickets_selected_count > 1 ) : ?>
           <div class="tix-show-if-js">
