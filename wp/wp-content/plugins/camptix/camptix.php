@@ -5361,8 +5361,8 @@ class CampTix_Plugin {
         <?php endforeach; // tickets_selected ?>
         
         <?php if ( 236 == $ticket->ID ): // <-- "236" は、宿泊チケットの ID です。毎年変わると思いますので、調べる必要あり。?>
-        	<p style="margin-top: 10px; text-align: center;">
-		        <strong style="color: red;">姓名、生年月日は保険の適用に必要です。かならず正しい本名と生年月日を入力してください。</strong>
+        	<p style="margin-top: 10px;">
+		        <strong style="color: red;">今回、宿泊コースでは、国内旅行保険に加入いたします。そのため姓名、ふりがな、性別、生年月日は保険の適用に必要となります。宿泊コースの方は必ず各項目に正しく入力してください。正しい情報を入力されなければ保険の適用がされなくなりますので、予めご了承ください。</strong>
         	</p>
         <?php endif; ?>
 
