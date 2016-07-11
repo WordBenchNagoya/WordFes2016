@@ -5362,9 +5362,13 @@ class CampTix_Plugin {
         
         <?php if ( 236 == $ticket->ID ): // <-- "236" は、宿泊チケットの ID です。毎年変わると思いますので、調べる必要あり。?>
         	<p style="margin-top: 10px;">
-		        <strong style="color: red;">今回、宿泊コースでは、国内旅行保険に加入いたします。そのため姓名、ふりがな、性別、生年月日は保険の適用に必要となります。宿泊コースの方は必ず各項目に正しく入力してください。正しい情報を入力されなければ保険の適用がされなくなりますので、予めご了承ください。</strong>
+		        <strong style="color: red;">※ 今回、宿泊コースでは、国内旅行保険に加入いたします。そのため姓名、ふりがな、性別、生年月日は保険の適用に必要となります。宿泊コースの方は必ず各項目に正しく入力してください。正しい情報を入力されなければ保険の適用がされなくなりますので、予めご了承ください。</strong>
         	</p>
         <?php endif; ?>
+
+        	<p style="margin-top: 10px;">
+		        ※ Twitter や Facebook は、参加者一覧に表示できる場合のみ入力ください。Twitter と Facebook 両方に入力された場合、 Twitter が優先されます。
+        	</p>
 
         <?php if ( $this->tickets_selected_count > 1 ) : ?>
           <div class="tix-show-if-js">
