@@ -59,7 +59,10 @@ function pdc_get_ret2br_text( $text ) {
  */
 function pdc_get_page() {
 	
-	$page = get_page_by_path( get_query_var('pagename') );
+	global $post;
+	
+	//$page = get_page_by_path( get_query_var('pagename') );
+	$page = get_post( $post->ID );
 	
 	if ( ! isset( $page ) ) {
 		
@@ -78,6 +81,8 @@ function pdc_get_page_name() {
 	
 	$page = pdc_get_page();
 	
+	//echo '<pre style="z-index: 999; background: #fff;">'; var_dump( $page ); echo '</pre>';
+	
 	return $page->post_title;
 	
 }
@@ -89,6 +94,8 @@ function pdc_get_page_slug() {
 	
 	$page = pdc_get_page();
 	
+	//echo '<!-- <pre style="z-index: 999; background: #fff;">'; var_dump( $page ); echo '</pre> -->';
+
 	return $page->post_name;
 	
 }

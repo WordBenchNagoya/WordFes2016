@@ -18,7 +18,7 @@
 .site-header #signboard { position: absolute; right: 0; bottom: 0; left: 0; width: 600px; height: 320px; margin: auto; padding: 30px 75px 50px; background: url(../images/common/bg-signboard.png) center center no-repeat; }
 .site-header .site-title { width: 100%; }
 .site-header .site-title img { width: 70%; height: auto; }
-.site-header .page-title { line-height: .8; font-weight: normal; font-size: 2.43rem; color: #046a37; }
+.site-header .page-title { line-height: .8; font-weight: normal; font-size: 2rem; color: #046a37; }
 .site-header .page-title span { font-size: 1.14rem; color: #777; }
 .site-header #site-navigation ul { padding: 10px 0 5px; background: #fff; border-radius: 10px; }
 
