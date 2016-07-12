@@ -217,7 +217,7 @@ class CampTix_Addon_Shortcodes extends CampTix_Addon {
               }
 
               if ( $screen_name ) {
-                echo '<div class="col-xs-4"><a href="http://twitter.com/' . $screen_name . '/" target="_blank"><img src="'.$twitter_image.'" class="img-responsive img-circle" width="50" height="50"></a></div>';
+                echo '<div class="col-xs-4"><a href="http://twitter.com/' . $screen_name . '" target="_blank"><img src="'.$twitter_image.'" class="img-responsive img-circle" width="50" height="50"></a></div>';
               } else if( $facebook_id ){
                 echo '<div class="col-xs-4"><a href="https://www.facebook.com/' . $facebook_id . '/" target="_blank"><img src="'.get_avatar_url( get_post_meta( $attendee_id, 'tix_email', true ) ).'" class="img-responsive img-circle" width="50" height="50"></a></div>';
               } else {
