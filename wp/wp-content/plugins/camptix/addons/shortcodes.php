@@ -91,10 +91,12 @@ class CampTix_Addon_Shortcodes extends CampTix_Addon {
       ),
     ) );
 
+    // 毎年ここの Twitter & Facebook Question ID が変わるので、変更する必要あり
+    $twitter_question_id = '281';
     $facebook_question_ids = array(
-      //'73',
-      '282',
+      '282', 
     );
+
     foreach ( $questions as $key => $question ) {
       $question_ids[] = $question->ID;
     }
@@ -179,8 +181,7 @@ class CampTix_Addon_Shortcodes extends CampTix_Addon {
               $last  = get_post_meta( $attendee_id, 'tix_first_name', true );
               $questions = get_post_meta( $attendee_id, 'tix_questions', true );
 
-
-              $twitter_id = isset( $questions['72'] ) ? $questions['72'] : 0;
+              $twitter_id = isset( $questions[$twitter_question_id] ) ? $questions[$twitter_question_id] : 0;
 
               foreach ( $facebook_question_ids as $key => $facebook_id ) {
                 if ( $questions[$facebook_id] ) {
@@ -226,12 +227,12 @@ class CampTix_Addon_Shortcodes extends CampTix_Addon {
               ?>
               <div class="col-xs-8 tix tix-attendee-name">
                 <?php
-                if ( !$screen_name && $facebook_id ) {
-                  echo '<a href="https://www.facebook.com/' . $facebook_id . '/" target="_blank">' . $facebook_id . '</a>';
-                } ?>
-                <?php
                 do_action( 'camptix_attendees_shortcode_item', $attendee_id );
                 ?>
+                <?php
+                if ( $facebook_id ) {
+                  echo '<a class="tix-field tix-attendee-facebook" href="https://www.facebook.com/' . $facebook_id . '/" target="_blank">FB: ' . $facebook_id . '</a>';
+                } ?>
               </div>
               <?php
               echo '</div>';
