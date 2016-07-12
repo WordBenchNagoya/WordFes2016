@@ -5361,15 +5361,17 @@ class CampTix_Plugin {
         <?php endforeach; // tickets_selected ?>
         
         <?php if ( 236 == $ticket->ID ): // <-- "236" は、宿泊チケットの ID です。毎年変わると思いますので、調べる必要あり。?>
-        	<p style="margin-top: 10px;">
-		        <strong style="color: red;">※ 今回、宿泊コースでは、国内旅行保険に加入いたします。そのため姓名、ふりがな、性別、生年月日は保険の適用に必要となります。宿泊コースの方は必ず各項目に正しく入力してください。正しい情報を入力されなければ保険の適用がされなくなりますので、予めご了承ください。</strong>
+        	<p style="margin-top: 10px; font-size:0.8em">
+		        <strong style="color: red;">※ 今回、宿泊コースでは、国内旅行保険に加入いたします。そのため姓名、ふりがな、性別、生年月日は保険の適用に必要となります。宿泊コースの方は必ず各項目に正しく入力してください。正しい情報を入力されなければ保険の適用がされなくなります。</strong>
         	</p>
         <?php endif; ?>
 
-        	<p style="margin-top: 10px;">
-		        ※ Twitter や Facebook は、参加者一覧に表示できる場合のみ入力ください。Twitter と Facebook 両方に入力された場合、 Twitter が優先されます。
+        	<p style="margin-top: 10px; font-size:0.8em">
+		        ※ Twitter や Facebook は、参加者一覧に表示させたい場合のみユーザー名を入力ください。https://twitter.com/XXXXX や https://facebook.com/XXXX の「XXXX」の部分です。
         	</p>
-
+        	<p style="margin-top: 10px; font-size:0.8em">
+		        ※ Facebook でユーザーネームを登録されていない方は正常に表示されません。(例: 自分のプロフィールページを表示している時の URL が https://www.facebook.com/profile.php?id=[数字] となっている方。設定は<a href="https://www.facebook.com/settings?tab=account&section=username&view" target="_blank">一般アカウント設定</a>から行えます)
+        	</p>
         <?php if ( $this->tickets_selected_count > 1 ) : ?>
           <div class="tix-show-if-js">
             <table class="tix-receipt-form">
