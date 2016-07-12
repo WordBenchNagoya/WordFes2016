@@ -231,7 +231,8 @@ class CampTix_Addon_Shortcodes extends CampTix_Addon {
                 ?>
                 <?php
                 if ( $facebook_id ) {
-                  echo '<a class="tix-field tix-attendee-facebook" href="https://www.facebook.com/' . $facebook_id . '/" target="_blank">FB: ' . $facebook_id . '</a>';
+                  $css_fb_linebreak = ($screen_name) ? ' tix-attendee-linebreak' : '';
+                  echo '<a class="tix-field tix-attendee-facebook' . $css_fb_linebreak . '" href="https://www.facebook.com/' . $facebook_id . '/" target="_blank">FB: ' . $facebook_id . '</a>';
                 } ?>
               </div>
               <?php

@@ -93,6 +93,12 @@ body.admin-bar #tix {
 	clear: none;
 }
 
+.tix-attendee-linebreak:before {
+	content: "\A" ;
+	white-space: pre ;
+}
+
+
 .entry-content input,
 .entry-content select {
 	margin: 0 0 0 0;
