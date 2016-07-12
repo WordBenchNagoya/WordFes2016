@@ -92,7 +92,8 @@ class CampTix_Addon_Shortcodes extends CampTix_Addon {
     ) );
 
     $facebook_question_ids = array(
-      '73',
+      //'73',
+      '282',
     );
     foreach ( $questions as $key => $question ) {
       $question_ids[] = $question->ID;
