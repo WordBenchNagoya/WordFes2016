@@ -13,6 +13,21 @@
 			</div>
 			
 			<?php
+			$post_type = $post->post_type ? $post->post_type : get_query_var('pagename');
+			
+			if ( 'blog' == $post_type ) {
+				
+				$post_type = 'post';
+				
+			}
+			
+			echo '<!-- <pre>'; var_dump( get_post_type_object( $post_type ) ); echo '</pre> -->';
+
+			$page_data = get_post_type_object( $post->post_type );
+			
+			?>
+			
+			<?php
 			if ( is_single() ):
 				/* シングルページ用のソーシャルボタン */
 				get_template_part( 'template-parts/social', 'single' );
