@@ -2,6 +2,10 @@
 			
 			<h2>開催概要</h2>
 			
+			<div class="banner-container">
+				<?php dynamic_sidebar('banner-area'); ?>
+			</div>
+			
 			<nav id="side-navigation">
 				
 				<div class="navigation-menu">

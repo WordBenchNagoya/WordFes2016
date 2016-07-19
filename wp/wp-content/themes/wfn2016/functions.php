@@ -69,6 +69,21 @@ endif; // wordfes2016_setup
 add_action( 'after_setup_theme', 'wordfes2016_setup' );
 
 
+/* ウィジェット追加 */
+if (function_exists('register_sidebar')) {
+	register_sidebar(array(
+		'name' => 'バナーエリア',
+		'id' => 'banner-area',
+		'description' => 'バナーを表示するエリア',
+		'before_widget' => '<div class="banner-item">',
+		'after_widget' => '</div>',
+		'before_title' => '',
+		'after_title' => ''
+	));
+}
+
+
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *

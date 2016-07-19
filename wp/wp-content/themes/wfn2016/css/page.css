@@ -7,6 +7,8 @@
 /* カラー */
 .sidebar { padding-top: 25px; }
 .sidebar h2 { margin: 0; padding: 5px; background: #94c554; color: #fff; }
+.sidebar .banner-container { background: #f4f4f4; }
+.sidebar .banner-container .banner-item { padding: 5px; }
 .sidebar ul { margin: 0; padding: 0; list-style-type: none; text-align: left; }
 .sidebar ul li { margin: 0; padding: 0; }
 .sidebar ul li.current_page_item a { background-color: #ecfada; background-image: url(../images/common/list-mark-gr.png); background-position: 5px .75em; background-repeat: no-repeat; }
