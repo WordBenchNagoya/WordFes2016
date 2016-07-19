@@ -59,7 +59,10 @@ function pdc_get_ret2br_text( $text ) {
  */
 function pdc_get_page() {
 	
-	$page = get_page_by_path( get_query_var('pagename') );
+	global $post;
+	
+	//$page = get_page_by_path( get_query_var('pagename') );
+	$page = get_post( $post->ID );
 	
 	if ( ! isset( $page ) ) {
 		
@@ -76,9 +79,35 @@ function pdc_get_page() {
  */
 function pdc_get_page_name() {
 	
-	$page = pdc_get_page();
+	global $post;
 	
-	return $page->post_title;
+	if ( is_single() || is_archive() ) {
+		
+		$post_type = $post->post_type ? $post->post_type : get_query_var('pagename');
+		
+		if ( 'blog' == $post_type || 'post' == $post_type ) {
+			
+			$page_name = 'スタッフブログ';
+			
+		} else {
+		
+			$page_data = get_post_type_object( $post_type );
+			$page_name = $page_data->label;
+		
+		}
+		
+		//echo '<pre>'; var_dump( $page_data ); echo '</pre>';
+		
+	} else {
+	
+		$page      = pdc_get_page();
+		$page_name = $page->post_title;
+		
+		//echo '<pre style="z-index: 999; background: #fff;">'; var_dump( $page ); echo '</pre>';
+		
+	}
+	
+	return $page_name;
 	
 }
 
@@ -87,9 +116,35 @@ function pdc_get_page_name() {
  */
 function pdc_get_page_slug() {
 	
-	$page = pdc_get_page();
+	global $post;
 	
-	return $page->post_name;
+	if ( is_single() || is_archive() ) {
+		
+		$post_type = $post->post_type ? $post->post_type : get_query_var('pagename');
+		
+		if ( 'blog' == $post_type || 'post' == $post_type ) {
+			
+			$page_slug = 'blog';
+			
+		} else {
+		
+			$page_data = get_post_type_object( $post_type );
+			$page_slug = $page_data->label;
+		
+		}
+		
+		//echo '<!-- <pre>'; var_dump( $page_data ); echo '</pre> -->';
+		
+	} else {
+
+		$page      = pdc_get_page();
+		$page_slug = $page->post_name;
+	
+	//echo '<!-- <pre style="z-index: 999; background: #fff;">'; var_dump( $page ); echo '</pre> -->';
+	
+	}
+
+	return $page_slug;
 	
 }
 
