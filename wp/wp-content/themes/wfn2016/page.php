@@ -13,7 +13,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area clearfix">
-		<main id="main" class="site-main col-sm-9 col-xs-12" role="main">
+		<main id="main" class="site-main col-sm-8 col-xs-12" role="main">
 			
 			<?php
 			$page_title = get_post_meta( get_the_ID(), 'pdc-page-title', true ) ? get_post_meta( get_the_ID(), 'pdc-page-title', true ) : get_the_title();
