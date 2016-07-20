@@ -38,6 +38,10 @@ header #site-navigation ul li a img { opacity: 1; }
 .copyright-wrapper { padding: 10px; background-color: #0e6939; color: #FFF; }
 .copyright-wrapper .copyright { margin: 0; }
 
-@media screen and (max-width: 767px) { header #site-navigation ul { width: 100%; } }
+/*
+// スマホ
+*/
+@media screen and (max-width: 767px) { header #site-navigation ul { width: 100%; }
+  header #site-navigation ul li { text-align: left; } }
 
 /*# sourceMappingURL=base.css.map */

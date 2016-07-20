@@ -157,6 +157,22 @@
 	.article-content {
 		margin: 25px 0;
 		line-height: 1.8;
+		
+		img,
+		iframe {
+			max-width: 100%;
+		}
+		
+		p {
+			position: relative;
+		}
+		
+		img.aligncenter {
+			float: none;
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+		}
 	}
 	
 	.page-navi {
@@ -189,15 +205,35 @@
 	
 	.site-header {
 		height: auto;
+		background-position: center top;
+		
+		.main-image {
+			height: auto;
+		}
 		
 		#signboard {
+			position: relative;
 			width: 100%;
 			height: auto;
-			padding: 20px 30px 50px;
+			padding: 50px 30px 40px;
 			background-size: 100% auto;
+			background-position: center bottom;
 			
 			.site-title {
 				margin-bottom: 10px;
+				
+				img {
+					width: 65%;
+				}
+			}
+			
+			.page-title {
+				margin: 0;
+				font-size: $fs-21;
+				
+				span {
+					font-size: $fs-12;
+				}
 			}
 		}
 	}
@@ -210,6 +246,10 @@
 		
 		.section {
 			margin-bottom: 0;
+			
+			.article-title {
+				margin: 0;
+			}
 		}
 	}
 }

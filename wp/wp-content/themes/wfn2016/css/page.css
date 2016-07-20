@@ -57,16 +57,24 @@
 #main .social .social-list .social-item .sns-button { display: inline-block; }
 #main .social .social-list .social-item .fb-like { overflow: hidden !important; }
 #main .article-content { margin: 25px 0; line-height: 1.8; }
+#main .article-content img, #main .article-content iframe { max-width: 100%; }
+#main .article-content p { position: relative; }
+#main .article-content img.aligncenter { float: none; display: block; margin-right: auto; margin-left: auto; }
 #main .page-navi { padding: 10px 0; border-top: 3px solid #94c554; }
 #main .page-navi .prev { padding-left: 0; }
 #main .page-navi .prev a { display: block; padding-left: 25px; background: url(../images/common/bg-prev.png) left 0.1em no-repeat; }
 #main .page-navi .next { padding-right: 0; }
 #main .page-navi .next a { display: block; padding-right: 25px; background: url(../images/common/bg-next.png) right 0.1em no-repeat; }
 
-@media screen and (max-width: 767px) { .site-header { height: auto; }
-  .site-header #signboard { width: 100%; height: auto; padding: 20px 30px 50px; background-size: 100% auto; }
+@media screen and (max-width: 767px) { .site-header { height: auto; background-position: center top; }
+  .site-header .main-image { height: auto; }
+  .site-header #signboard { position: relative; width: 100%; height: auto; padding: 50px 30px 40px; background-size: 100% auto; background-position: center bottom; }
   .site-header #signboard .site-title { margin-bottom: 10px; }
+  .site-header #signboard .site-title img { width: 65%; }
+  .site-header #signboard .page-title { margin: 0; font-size: 1.5rem; }
+  .site-header #signboard .page-title span { font-size: 0.86rem; }
   #primary { width: 100%; }
-  #main .section { margin-bottom: 0; } }
+  #main .section { margin-bottom: 0; }
+  #main .section .article-title { margin: 0; } }
 
 /*# sourceMappingURL=page.css.map */
