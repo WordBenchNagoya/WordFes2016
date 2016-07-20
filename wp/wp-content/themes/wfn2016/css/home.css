@@ -24,10 +24,10 @@ header #site-navigation { padding: 20px 15px 25px; background: url(../images/nav
 .section-inner ul li .title a { color: #000; text-decoration: none; }
 .section-inner ul li .title a:hover { text-decoration: underline; }
 
-@media screen and (max-width: 767px) { header .main-image { height: auto; padding: 30px 10px; }
+@media screen and (max-width: 767px) { header .main-image { height: auto; padding: 30px 10px 0; }
   header .main-image img { width: 100%; }
   header .site-title { margin-top: 0; }
-  header #sign { position: relative; top: 0; bottom: 0; width: 100%; height: auto; margin: 20px 0; }
+  header #signboard { position: relative; top: 0; bottom: 0; width: 100%; height: auto; margin: 20px 0 0; }
   #sec-about .left-box { padding-bottom: 20px; text-align: center; }
   .section-inner { width: 100%; }
   .schedule { margin-bottom: 20px; }
