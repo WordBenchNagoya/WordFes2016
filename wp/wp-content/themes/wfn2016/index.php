@@ -13,7 +13,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area clearfix">
-		<main id="main" class="site-main col-md-9 col-xs-12" role="main">
+		<main id="main" class="site-main col-md-8 col-xs-12" role="main">
 			
 			<?php
 			$page_name = pdc_get_page_name();

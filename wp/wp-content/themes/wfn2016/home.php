@@ -13,7 +13,7 @@ get_header(); ?>
 
 	<div id="primary">
 		
-		<main id="main">
+		<main id="main" class="site-main col-sm-8 col-xs-12" role="main">
 			
 			<?php
 			if( get_query_var('pagename') ) {
