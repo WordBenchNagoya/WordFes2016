@@ -5,6 +5,8 @@
 			
 			<?php
 			$page_title = get_post_meta( get_the_ID(), 'pdc-page-title', true ) ? get_post_meta( get_the_ID(), 'pdc-page-title', true ) : get_the_title();
+			
+			do_shortcode('[remains post_id="230"]');
 			?>
 			
 			<h1 class="page-title"><?php echo $page_title; ?></h1>

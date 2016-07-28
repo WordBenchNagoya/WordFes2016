@@ -84,6 +84,9 @@ function pdc_article_list( $atts ) {
 add_shortcode( 'article_list', 'pdc_article_list' );
 
 
+/*
+ * ツイッター
+ */
 function pdc_twitter( $atts ) {
 
 	extract(
@@ -100,6 +103,73 @@ function pdc_twitter( $atts ) {
 }
 add_shortcode( 'twitter', 'pdc_twitter' );
 
+
+/*
+ * 残数表示
+ */
+function pdc_get_remains( $atts ) {
+	
+	extract(
+		shortcode_atts(
+			array(
+				'post_id' => '230',
+			),
+			$atts
+		)
+	);
+	
+	$session_total   = 250;
+	$session_remains = $GLOBALS['camptix']->get_remaining_tickets( 230 );
+	$session_sale    = intval( get_post_meta( 230, 'tix_coupon_quantity', true ) ) - $session_remains;
+	$party_total     = 100;
+	$party_remains   = $GLOBALS['camptix']->get_remaining_tickets( 235 );
+	$party_sale      = intval( get_post_meta( 235, 'tix_coupon_quantity', true ) ) - $party_remains;
+	$stay_total      = 48;
+	$stay_remains    = $GLOBALS['camptix']->get_remaining_tickets( 236 );
+	$stay_sale       = intval( get_post_meta( 236, 'tix_coupon_quantity', true ) ) - $saty_remains;
+	
+	switch ( $post_id ) {
+		
+		case 230:
+			// セッションのみ
+			$remains = $session_remains + $party_remains + $saty_remains;
+			break;
+		
+		case 235:
+			// 懇親会
+			$remains = $party_remains + $stay_remains - 3;
+			break;
+			
+		case 236:
+			// 宿泊
+			$remains = $stay_remains;
+			break;
+			
+		default:
+			break;
+		
+	}
+	
+	if ( 0 == $remains ) {
+		
+		$remains_text = '（ <span class="remains red">完売しました</span> ）';
+		
+	} elseif ( 10 > $remains ) {
+		
+		$remains_text = '（ あと <span class="remains red">' . $remains . '</span> 名 ）';
+		
+	} else {
+		
+		$remains_text = '（ あと <span class="remains green">' . $remains . '</span> 名 ）';
+		
+	}
+	
+	
+	
+	return wp_kses_post( $remains_text );
+	
+}
+add_shortcode( 'remains', 'pdc_get_remains' );
 
 
 

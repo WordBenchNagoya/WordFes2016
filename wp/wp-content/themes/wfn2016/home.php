@@ -11,20 +11,13 @@ Template Name: スタッフブログ
 
 get_header(); ?>
 
-	<div id="primary">
+	<div id="primary" class="clearfix">
 		
-		<main id="main" class="site-main col-sm-8 col-xs-12" role="main">
+		<main id="main" class="site-main archive col-sm-8 col-xs-12" role="main">
 			
-			<?php
-			if( get_query_var('pagename') ) {
-				
-				$page = get_page_by_path( get_query_var('pagename') );
-				$page_name = $page->page_title;
-			
-			}
-			?>
-		
-			<h1 class="page-title"><?php echo esc_html( $page_name ); ?></h1>
+			<h1 class="page-title">
+				<span class="title">スタッフブログ</span>
+			</h1>
 			
 			<div class="section">
 			
@@ -48,6 +41,8 @@ get_header(); ?>
 		
 		</main><!-- #main -->
 		
+		<?php get_sidebar(); ?>
+
 	</div><!-- #primary -->
 
 <?php get_footer(); ?>

@@ -41,13 +41,10 @@ function pdc_get_ret2br_text( $text ) {
 	
 	$search = array(
 		'<p>',
-		'</p>',
 		'&nbsp;',
 	);
 	$result = str_replace( $search, '', $text );
-	$result = str_replace( "\n", "<br>\n", $result );
-	$result = str_replace( "--><br>", "-->", $result );
-	$result = str_replace( "--><br />", "-->", $result );
+	$result = str_replace( "</p>", "<br><br>", $result );
 	
 	return $result;
 	
@@ -81,20 +78,16 @@ function pdc_get_page_name() {
 	
 	global $post;
 	
-	if ( is_single() || is_archive() ) {
+	if ( is_home() ) {
+		
+		$page_name = 'スタッフブログ';
+	
+	} elseif ( is_single() || is_archive() ) {
 		
 		$post_type = $post->post_type ? $post->post_type : get_query_var('pagename');
 		
-		if ( 'blog' == $post_type || 'post' == $post_type ) {
-			
-			$page_name = 'スタッフブログ';
-			
-		} else {
-		
-			$page_data = get_post_type_object( $post_type );
-			$page_name = $page_data->label;
-		
-		}
+		$page_data = get_post_type_object( $post_type );
+		$page_name = $page_data->label;
 		
 		//echo '<pre>'; var_dump( $page_data ); echo '</pre>';
 		
@@ -112,26 +105,24 @@ function pdc_get_page_name() {
 }
 
 /*
- *  ページＩＤを取得
+ *  ページスラッグを取得
  */
 function pdc_get_page_slug() {
 	
 	global $post;
 	
-	if ( is_single() || is_archive() ) {
+	if ( is_home() ) {
+	
+		$page_slug = 'blog';
+	
+	} elseif ( is_single() || is_archive() ) {
 		
-		$post_type = $post->post_type ? $post->post_type : get_query_var('pagename');
+		//$post_type = $post->post_type ? $post->post_type : get_query_var('pagename');
 		
-		if ( 'blog' == $post_type || 'post' == $post_type ) {
-			
-			$page_slug = 'blog';
-			
-		} else {
+		//$page_data = get_post_type_object( $post_type );
+		//$page_slug = $page_data->slug;
 		
-			$page_data = get_post_type_object( $post_type );
-			$page_slug = $page_data->label;
-		
-		}
+		$page_slug = 'TOPICS';
 		
 		//echo '<!-- <pre>'; var_dump( $page_data ); echo '</pre> -->';
 		
@@ -176,7 +167,7 @@ add_filter('enter_title_here', 'change_post_enter_title_here');
 
 
 /*
- *  投稿時のタクソノミーの表示順序を変更
+ *  固定ページ一覧で表示する項目をカスタマイズ
  */
 function manage_pages_columns( $columns ) {
 	
@@ -202,7 +193,7 @@ add_filter( 'manage_pages_columns', 'manage_pages_columns' );
 
 
 /*
- *  投稿時のタクソノミーの表示順序を変更
+ *  固定ページ一覧で表示する項目をカスタマイズ
  */
 function add_page_column( $column_name, $post_id ) {
 	
@@ -284,6 +275,118 @@ function inside_district_column( $column_name ) {
 	
 }
 add_action( 'manage_posts_custom_column', 'inside_district_column' );
+
+
+//--------------------------------------------------------
+// アイキャッチがあればアイキャッチを、
+// なければ、記事中の最初の画像を、
+// それもなければダミー画像を返す。
+//
+// ＜引数＞
+// $post_id	   : 記事の ID
+// $dummy		 : ダミー画像の URL
+// $image_field   : 画像のフィールド（カスタムフィールドの場合に設定）
+// $content_field : 記事のフィールド（カスタムフィールドの場合に設定）
+//
+// ＜戻り値＞
+// 画像の情報の配列
+// 0 : 画像の URL
+// 1 : 画像の幅（ダミー画像はなし）
+// 2 : 画像の高さ（ダミー画像はなし）
+//--------------------------------------------------------
+function pdc_get_post_thumbnail( $post_id, $dummy, $image_field = '', $content_field = '', $size = 'thumbnail' ) {
+
+	$thumb_src = '';
+
+	if ( 'thumbnail' != $size && 'medium' != $size && 'large' != $size && 'full' != $size ) {
+
+		$size = 'thumbnail';
+
+	}
+	
+	// 画像を読み込み
+	if ( '' != $image_field ) {
+		
+		// カスタムフィールドから読み込み
+		$thumb_src   = wp_get_attachment_image_src( get_post_meta( $post_id, $image_field, true ), $size );
+		
+	} else {
+		
+		// アイキャッチを読み込み
+		$id		     = get_post_thumbnail_id( $post_id );
+		$thumb_src   = wp_get_attachment_image_src( $id, $size );
+		
+	}
+	
+	//var_dump($thumb_src);
+
+	if ( ! $thumb_src ) {
+		
+		// 画像を捜す記事を設定
+		if ( '' != $content_field ) {
+			
+			$content = get_post_meta( $post_id, $content_field, true );
+			
+		} else {
+			
+			$content = get_the_content( $post_id );
+		}
+	
+		// 記事中の画像取り出し
+		if ( preg_match( '/wp-image-(\d+)/', $content, $matches ) ) {
+			
+			$thumb_src   = wp_get_attachment_image_src( $matches[1], $size );
+			
+		} else {
+			
+			$thumb_src[] = $dummy;
+			$thumb_src[] = get_option( $size . '_size_w', 0 );
+			$thumb_src[] = get_option( $size . '_size_h', 0 );
+			
+		}
+		
+	}
+	
+	return $thumb_src;
+
+}
+
+
+//--------------------------------------------------------
+// 抜粋記事取得
+//
+// ＜引数＞
+// $text  : 元のテキスト
+// $max   : 抜き出す文字数
+// $after : 抜き出した際に後ろに付けるテキスト
+// $allow : 許可するタグ（デフォルト：''）
+//
+// ＜戻り値＞
+// 抜粋文字列
+//--------------------------------------------------------
+function pdc_get_excerpt( $text, $max, $after = '', $allow = '' ) {
+	
+	$text = strip_tags( $text, $allow );
+	$len  = mb_strlen( $text );
+	
+	if ( $max < $len ) {
+	
+		$excerpt  = mb_substr( $text, 0, $max );
+		$excerpt .= $after;
+		
+	} else {
+	
+		$excerpt = $text;
+		
+	}
+
+	return $excerpt;
+	
+}
+
+
+
+
 
 
 

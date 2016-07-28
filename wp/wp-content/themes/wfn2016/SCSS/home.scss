@@ -83,7 +83,7 @@ header {
 		
 		li {
 			overflow: hidden;
-			margin: 0 0 10px;
+			margin: 0 0 15px;
 			
 			.date {
 				display: inline-block;
@@ -110,6 +110,22 @@ header {
 			} // .title
 		} // li
 	} // ul
+	
+	.remains {
+		font-weight: bold;
+		
+		&.red {
+			color: red;
+		}
+		
+		&.green {
+			color: #0e6939;
+		}
+	}
+	
+	.button-box {
+		margin: 30px 0;
+	}
 } // .section-inner
 
 @media screen and (max-width: 767px) {

@@ -18,11 +18,15 @@ header #site-navigation { padding: 20px 15px 25px; background: url(../images/nav
 .section-inner .sub-title { text-align: center; }
 .section-inner h3 { color: #0e6939; font-weight: bold; }
 .section-inner ul { padding: 0; list-style-type: none; }
-.section-inner ul li { overflow: hidden; margin: 0 0 10px; }
+.section-inner ul li { overflow: hidden; margin: 0 0 15px; }
 .section-inner ul li .date { display: inline-block; margin: 0 0 5px; padding: 2px 15px; background: #0e6939; border-radius: 5px; color: #fff; }
 .section-inner ul li .title { margin: 0; padding-left: 15px; background: url(../images/common/list-mark-gr.png) left 0.4em no-repeat; }
 .section-inner ul li .title a { color: #000; text-decoration: none; }
 .section-inner ul li .title a:hover { text-decoration: underline; }
+.section-inner .remains { font-weight: bold; }
+.section-inner .remains.red { color: red; }
+.section-inner .remains.green { color: #0e6939; }
+.section-inner .button-box { margin: 30px 0; }
 
 @media screen and (max-width: 767px) { header .main-image { height: auto; padding: 30px 10px 0; }
   header .main-image img { width: 100%; }
