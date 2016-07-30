@@ -137,7 +137,8 @@ function pdc_get_remains( $atts ) {
 		
 		case 235:
 			// 懇親会
-			$remains = $party_remains + $stay_remains - 3;
+			//$remains = $party_remains + $stay_remains - 3;
+			$remains = $party_remains + $stay_remains;
 			break;
 			
 		case 236:
