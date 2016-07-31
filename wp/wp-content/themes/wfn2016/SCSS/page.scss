@@ -162,6 +162,14 @@
 					width: 80%;
 					padding: 0 5px;
 					font-size: $fs-18;
+				
+					a {
+						color: $textColor;
+						
+						&:hover {
+							color: $textColor;
+						}
+					}
 				}
 			}
 		} // .text-box
