@@ -124,7 +124,7 @@ function wordfes2016_scripts() {
 		
 		$post_type = get_query_var('post_type') ? get_query_var('post_type') : get_query_var('pagename');
 		
-		if ( '' != $post_type ) {
+		if ( 'contact' == $post_type ) {
 			
 			wp_enqueue_style( 'wfn2016-' . esc_attr( $post_type ), get_template_directory_uri() . '/css/' . esc_attr( $post_type ) . '.css' );
 			
