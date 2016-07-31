@@ -8,7 +8,7 @@
 				
 				<h2 class="page-title">
 					<?php echo esc_html( pdc_get_page_name() ); ?><br>
-					<span><?php echo esc_html( strtoupper( pdc_get_page_slug() ) ); ?></span>
+					<span><?php echo wp_kses_post( strtoupper( pdc_get_page_slug() ) ); ?></span>
 				</h2>
 			</div>
 			

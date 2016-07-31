@@ -1,4 +1,8 @@
 <?php
+/*
+Template Name: セッション
+*/
+
 /**
  * The template for displaying all pages.
  *
@@ -12,41 +16,19 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main session" role="main">
-
+	<div id="primary" class="content-area clearfix">
+		
+		<main id="main" class="site-main col-sm-12 col-xs-12" role="main">
+			
+			<?php
+			$page_title = get_post_meta( get_the_ID(), 'pdc-page-title', true ) ? get_post_meta( get_the_ID(), 'pdc-page-title', true ) : get_the_title();
+			?>
+			
+			<h1 class="page-title"><?php echo $page_title; ?></h1>
+			
 			<?php while ( have_posts() ) : the_post(); ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class( 'main-contents' ); ?>>
-				<div class="container">
-					<header class="entry-header">
-						<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
-			
-						<?php if ( 'post' == get_post_type() ) : ?>
-						<div class="entry-meta clearfix">
-							<?php //wordfes2015_posted_on(); ?>
-						</div><!-- .entry-meta -->
-						<?php endif; ?>
-					</header><!-- .entry-header -->
-			
-					<div class="entry-content">
-						<?php get_template_part( 'parts/time-table', 'page' ); ?>
-					</div><!-- .entry-content -->
-			
-					<footer class="entry-footer">
-						<?php //wordfes2015_entry_footer(); ?>
-					</footer><!-- .entry-footer -->
-				</div><!-- .container -->
-			</article><!-- #post-## -->
-
-				<?php
-					// If comments are open or we have at least one comment, load up the comment template.
-					/*
-					if ( comments_open() || get_comments_number() ) :
-						comments_template();
-					endif;
-					*/
-				?>
+				<?php get_template_part( 'parts/time-table' ); ?>
 
 			<?php endwhile; // End of the loop. ?>
 
@@ -54,6 +36,14 @@ get_header(); ?>
 		
 	</div><!-- #primary -->
 	
-<?php get_template_part( 'parts/spporter', ); ?>
-
+	<div id="secondary" class="content-area clearfix">
+		
+		<?php
+		//if ( ! is_page('supporter') ) {
+			get_template_part( 'parts/content', 'supporter' );
+		//}
+		?>
+		
+	</div><!-- #secondary -->
+	
 <?php get_footer(); ?>

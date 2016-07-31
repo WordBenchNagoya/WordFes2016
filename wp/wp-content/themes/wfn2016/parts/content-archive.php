@@ -24,7 +24,7 @@
 						
 						<h2 class="clearfix">
 							<span class="date"><?php the_time('Y.n.j'); ?></span>
-							<span class="title"><?php the_title(); ?></span>
+							<span class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span>
 						</h2>
 						
 						<p>

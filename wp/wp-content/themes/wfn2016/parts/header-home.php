@@ -8,11 +8,13 @@
 				<img src="<?php echo get_template_directory_uri(); ?>/images/top/img-date.png" alt="2016.8.27(sat) 10:00-17:00 名古屋工業大学">
 			</p>
 			
+			<a href="http://2016.wordfes.org/topics/session-information-vol01/" style="display: block;">
 			<div id="signboard">
-				<img src="<?php echo get_template_directory_uri(); ?>/images/top/img-signboard.png" alt="セッション内容準備中">
+					<img src="<?php echo get_template_directory_uri(); ?>/images/top/img-signboard.png" alt="セッション内容準備中">
 			</div>
 			
 			<div class="cover hidden-xs">&nbsp;</div>
+			</a>
 			
 			<?php
 			if ( is_single() ):

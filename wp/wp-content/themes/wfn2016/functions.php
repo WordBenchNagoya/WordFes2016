@@ -118,17 +118,28 @@ function wordfes2016_scripts() {
 		
 		wp_enqueue_style( 'wfn2016-home', get_template_directory_uri() . '/css/home.css' );
 		
+	} elseif ( is_singular('sessions') || is_page('sessions') ) {
+		
+		wp_enqueue_style( 'wfn2016-page', get_template_directory_uri() . '/css/page.css' );
+		
+		wp_enqueue_style( 'wfn2016-sessions' , get_template_directory_uri() . '/css/sessions.css' );
+		
 	} else {
 		
 		wp_enqueue_style( 'wfn2016-page', get_template_directory_uri() . '/css/page.css' );
 		
 		$post_type = get_query_var('post_type') ? get_query_var('post_type') : get_query_var('pagename');
 		
+		$file_name = get_template_directory_uri() . '/css/' . esc_attr( $post_type ) . '.css';
+		//$file_name = '/wp-content/themes/wfn2016/css/sessions.css';
+		
 		if ( 'contact' == $post_type ) {
 			
-			wp_enqueue_style( 'wfn2016-' . esc_attr( $post_type ), get_template_directory_uri() . '/css/' . esc_attr( $post_type ) . '.css' );
+			wp_enqueue_style( 'wfn2016-' . esc_attr( $post_type ), $file_name );
 			
 		}
+		
+		//wp_enqueue_style( 'wfn2016-' . esc_attr( $post_type ), $file_name );
 		
 	}
 

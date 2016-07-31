@@ -86,8 +86,16 @@ function pdc_get_page_name() {
 		
 		$post_type = $post->post_type ? $post->post_type : get_query_var('pagename');
 		
-		$page_data = get_post_type_object( $post_type );
-		$page_name = $page_data->label;
+		if ( 'post' == $post_type ) {
+			
+			$page_name = 'スタッフブログ';
+			
+		} else {
+		
+			$page_data = get_post_type_object( $post_type );
+			$page_name = $page_data->label;
+		
+		}
 		
 		//echo '<pre>'; var_dump( $page_data ); echo '</pre>';
 		
@@ -113,18 +121,19 @@ function pdc_get_page_slug() {
 	
 	if ( is_home() ) {
 	
-		$page_slug = 'blog';
+		$page_slug = 'staff blog';
 	
 	} elseif ( is_single() || is_archive() ) {
 		
-		//$post_type = $post->post_type ? $post->post_type : get_query_var('pagename');
+		$page_slug = get_query_var('post_type') ? get_query_var('post_type') : $post->post_type;
 		
-		//$page_data = get_post_type_object( $post_type );
-		//$page_slug = $page_data->slug;
+		if ( 'post' == $page_slug ) {
+			
+			$page_slug = 'staff blog';
+			
+		}
 		
-		$page_slug = 'TOPICS';
-		
-		//echo '<!-- <pre>'; var_dump( $page_data ); echo '</pre> -->';
+		//echo '<!-- <pre>'; var_dump( $post ); echo '</pre> -->';
 		
 	} else {
 
@@ -383,6 +392,8 @@ function pdc_get_excerpt( $text, $max, $after = '', $allow = '' ) {
 	return $excerpt;
 	
 }
+
+
 
 
 
