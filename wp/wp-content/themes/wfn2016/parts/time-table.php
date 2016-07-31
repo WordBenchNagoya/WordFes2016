@@ -263,8 +263,12 @@ function wordfes2016_timetable_meta( $timezone, $stage ){
 			foreach ( $session_args as $session_key => $session ) { ?>
 				<dt><a href="<?php echo esc_url( get_the_permalink( $session->ID ) ); ?>"><?php echo esc_html( $session->post_title ) ?></a></dt>
 				<dd>
-					<i class="glyphicon glyphicon-user"></i> <?php echo esc_html( get_field( 'session_speaker_name', $session->ID ) ) ?><br>
+				<?php if ( $speaker = get_field( 'session_speaker_name', $session->ID ) ): ?>
+				
+					<i class="glyphicon glyphicon-user"></i> <?php echo esc_html( $speaker ) ?><br>
 					<span class="visible-xs visible-sm"><?php echo esc_html( $stage->name ); ?>(<?php echo esc_html( $stage->description ); ?>）</span>
+					
+				<?php endif; ?>
 			<?php
 				//$target_terms = get_the_terms( $session->ID, 'target' );
 				//foreach ( $target_terms as $key => $target ) {

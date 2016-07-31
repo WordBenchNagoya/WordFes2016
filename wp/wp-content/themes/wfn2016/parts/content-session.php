@@ -149,15 +149,15 @@ $slide_data   = get_field( 'session_slide' );
 					<div class="social-icon clearfix">
 						<?php
 						if ( $facebook ) : ?>
-							<a href="<?php echo esc_url( $facebook ) ?>" target="_blank" class="facebook-icon col-xs-12">Facebook</a>
+							<a href="<?php echo esc_url( $facebook ) ?>" target="_blank" class="facebook-icon">Facebook</a>
 						<?php
 						endif;
 						if ( $twitter ) : ?>
-							<a href="<?php echo esc_url( $twitter ); ?>" target="_blank" class="twitter-icon col-xs-12">Twitter</a>
+							<a href="<?php echo esc_url( $twitter ); ?>" target="_blank" class="twitter-icon">Twitter</a>
 						<?php
 						endif;
 						if ( $website ) : ?>
-							<a href="<?php echo esc_url( $website ); ?>" target="_blank" class="website-icon col-xs-12">Website or Blog</a>
+							<a href="<?php echo esc_url( $website ); ?>" target="_blank" class="website-icon">Website or Blog</a>
 						<?php
 						endif; ?>
 					</div><!-- .social-icon -->
