@@ -225,6 +225,7 @@ function wordfes2016_timetable_meta( $timezone, $stage ){
 	if ( ! $timezone || ! $stage ) {
 		return;
 	}
+	
 	if ( $stage->slug !== 'challenge-stage' ) : ?>
 
 		<td class="<?php echo esc_html( $stage->slug ); ?>">
@@ -236,7 +237,7 @@ function wordfes2016_timetable_meta( $timezone, $stage ){
 				
 			} else {
 				
-				$status = array( 'publish' );
+				$status = array( 'publish', 'draft' );
 				
 			}
 			$session_args = get_posts(
@@ -260,8 +261,19 @@ function wordfes2016_timetable_meta( $timezone, $stage ){
 				)
 			);
 			
-			foreach ( $session_args as $session_key => $session ) { ?>
-				<dt><a href="<?php echo esc_url( get_the_permalink( $session->ID ) ); ?>"><?php echo esc_html( $session->post_title ) ?></a></dt>
+			foreach ( $session_args as $session_key => $session ) {
+				
+				
+			?>
+				<dt>
+					<?php if ( 'draft' != $session->post_status ): ?>
+					<a href="<?php echo esc_url( get_the_permalink( $session->ID ) ); ?>">
+					<?php endif; ?>
+						<?php echo esc_html( $session->post_title ) ?>
+					<?php if ( 'draft' != $session->post_status ): ?>
+					</a>
+					<?php endif; ?>
+				</dt>
 				<dd>
 				<?php if ( $speaker = get_field( 'session_speaker_name', $session->ID ) ): ?>
 				

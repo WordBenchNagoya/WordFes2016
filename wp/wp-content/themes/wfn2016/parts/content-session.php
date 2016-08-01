@@ -174,11 +174,11 @@ $slide_data   = get_field( 'session_slide' );
 			</div>
 			<?php endif; ?>
 			<?php
-			if ( get_field( 'session_server' ) ) : ?>
+			if ( have_rows( 'session_server' ) ) : the_row();?>
 			
 			
 			<?php
-				while( has_sub_field( 'session_server' ) ) :
+				while( have_rows( 'session_server' ) ) :
 					$server_name                 = get_sub_field( 'session_server_name' );
 					$session_server_belong       = get_sub_field( 'session_server_belong' );
 					$session_server_belong_link  = get_sub_field( 'session_speaker_belong_link' );
@@ -191,7 +191,7 @@ $slide_data   = get_field( 'session_slide' );
 			
 			<div class="speaker-block">
 				<h2 class="speaker-title">
-						進行役紹介 -->
+					<!--	進行役紹介 -->
 					スピーカー（進行役）紹介
 				</h2>
 				<div class="speaker-contents clearfix">
