@@ -24,7 +24,7 @@
 .site-header .page-title span { font-size: 1.14rem; color: #777; }
 .site-header #site-navigation ul { padding: 10px 0 5px; background: #fff; border-radius: 10px; }
 
-#primary { width: 1000px; margin: auto; /*
+#primary { width: 100%; max-width: 1000px; margin: auto; /*
 	.section {
 		
 		&:nth-child(odd) {

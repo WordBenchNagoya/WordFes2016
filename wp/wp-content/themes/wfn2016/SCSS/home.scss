@@ -64,7 +64,8 @@ header {
 } // .section
 
 .section-inner {
-	width: $contentWidth;
+	width: 100%;
+	max-width: $contentWidth;
 	margin: 0 auto;
 	overflow: hidden;
 

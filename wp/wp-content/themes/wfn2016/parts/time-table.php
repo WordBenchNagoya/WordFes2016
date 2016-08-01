@@ -19,6 +19,7 @@
 	<div class="section-inner text-left clearfix">
 	
 	<p>お断り: セッションの内容は、予告なしに変更される場合がございます。予めご了承ください</p>
+	<div class="table-responsive">
 	<table class="table table-bordered time-table">
 		<col class="time" width="20%">
 		<col class="stage1" width="20%">
@@ -185,6 +186,9 @@
 			<td></td>
 		</tr>
 	</table>
+	</div><!-- .table-responsive -->
+	
+	<div class="table-responsive">
 	<table class="table table-bordered time-table">
 		<col class="col" width="20%">
 		<tr>
@@ -204,7 +208,9 @@
 			<td>ソピア・キャビン到着</td>
 		</tr>
 	</table>
+	</div><!-- .table-responsive -->
 	
+	<div class="table-responsive">
 	<table class="table table-bordered time-table">
 		<col class="col" width="20%">
 		<tr>
@@ -213,6 +219,7 @@
 			<td>宿泊組はソピア・キャビンで現地解散</td>
 		</tr>
 	</table>
+	</div><!-- .table-responsive -->
 
 	</div><!-- .section-inner -->
 	
@@ -278,7 +285,7 @@ function wordfes2016_timetable_meta( $timezone, $stage ){
 				<?php if ( $speaker = get_field( 'session_speaker_name', $session->ID ) ): ?>
 				
 					<i class="glyphicon glyphicon-user"></i> <?php echo esc_html( $speaker ) ?><br>
-					<span class="visible-xs visible-sm"><?php echo esc_html( $stage->name ); ?>(<?php echo esc_html( $stage->description ); ?>）</span>
+					<span class="visible-xs visible-sm"><?php echo esc_html( $stage->name ); ?></span>
 					
 				<?php endif; ?>
 			<?php
@@ -328,7 +335,7 @@ function wordfes2016_timetable_meta( $timezone, $stage ){
 				<dt><a href="<?php echo esc_url( get_the_permalink( $session->ID ) ); ?>"><?php echo esc_html( $session->post_title ) ?></a></dt>
 				<dd>
 					<i class="glyphicon glyphicon-user"></i> <?php echo esc_html( get_field( 'session_speaker_name', $session->ID ) ) ?><br>
-					<span class="visible-xs visible-sm grenn"><?php echo esc_html( $stage->name ); ?>(<?php echo esc_html( $stage->description ); ?>）</span>
+					<span class="visible-xs visible-sm grenn"><?php echo esc_html( $stage->name ); ?></span>
 <!-- 					<i class="level_<?php wordfes2014_the_term( $session->ID, 'target', 'slug' );?> level_icon"><?php wordfes2014_the_term( $session->ID, 'target' );?></i> -->
 					<?php wordfes2016_post_edit_link( $session->ID ); ?>
 				</dd>

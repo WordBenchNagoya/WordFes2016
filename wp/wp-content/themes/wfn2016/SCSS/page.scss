@@ -57,7 +57,8 @@
 } // header
 
 #primary {
-	width: $contentWidth;
+	width: 100%;
+	max-width: $contentWidth;
 	margin: auto;
 
 /*

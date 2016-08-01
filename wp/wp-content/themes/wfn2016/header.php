@@ -71,35 +71,35 @@ if ( is_front_page() ) {
 
 		<nav id="site-navigation">
 			
-			<div class="navigation-menu" class="text-center">
+			<div class="navigation-menu clearfix text-center">
 				
 				<ul class="clearfix text-center">
-					<li class="col-md-2 col-xs-12">
+					<li class="col-sm-2 col-xs-12">
 						<a href="<?php echo esc_url( home_url('/') ); ?>">
 							<img class="swap" src="<?php echo get_template_directory_uri(); ?>/images/navigation/nav-home.png" alt="トップ">
 						</a>
 					</li>
-					<li class="col-md-2 col-xs-12">
+					<li class="col-sm-2 col-xs-12">
 						<a href="<?php echo esc_url( home_url('/about') ); ?>">
 							<img class="swap" src="<?php echo get_template_directory_uri(); ?>/images/navigation/nav-about.png" alt="開催概要">
 						</a>
 					</li>
-					<li class="col-md-2 col-xs-12">
+					<li class="col-sm-2 col-xs-12">
 						<!-- <a href="<?php echo esc_url( home_url('/timetable') ); ?>"> -->
 							<img class="swap" src="<?php echo get_template_directory_uri(); ?>/images/navigation/nav-timetable.png" alt="タイムテーブル">
 						<!-- </a> -->
 					</li>
-					<li class="col-md-2 col-xs-12">
+					<li class="col-sm-2 col-xs-12">
 						<a href="<?php echo esc_url( home_url('/access') ); ?>">
 							<img class="swap" src="<?php echo get_template_directory_uri(); ?>/images/navigation/nav-access.png" alt="アクセス">
 						</a>
 					</li>
-					<li class="col-md-2 col-xs-12">
+					<li class="col-sm-2 col-xs-12">
 						<a href="<?php echo esc_url( home_url('/supporter') ); ?>">
 							<img class="swap" src="<?php echo get_template_directory_uri(); ?>/images/navigation/nav-supporter.png" alt="サポーター">
 						</a>
 					</li>
-					<li class="col-md-2 col-xs-12">
+					<li class="col-sm-2 col-xs-12">
 						<a href="<?php echo esc_url( home_url('/entry') ); ?>">
 							<img class="swap" src="<?php echo get_template_directory_uri(); ?>/images/navigation/nav-entry.png" alt="参加申込">
 						</a>

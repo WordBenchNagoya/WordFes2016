@@ -135,7 +135,7 @@ $slide_data   = get_field( 'session_slide' );
 				スピーカー（進行役）紹介
 			</h2>
 			<div class="speaker-contents clearfix">
-				<div class="col-sm-3 col-xs-12 text-left">
+				<div class="speaker-image col-sm-3 col-xs-12 text-left">
 					<?php
 					if ( has_post_thumbnail() ) {
 						the_post_thumbnail( 'full', array( 'class' => 'thumbnail img-responsive','style="margin-top: 20px"' ) );
@@ -195,7 +195,7 @@ $slide_data   = get_field( 'session_slide' );
 					スピーカー（進行役）紹介
 				</h2>
 				<div class="speaker-contents clearfix">
-					<div class="col-sm-3 col-xs-12 text-left">
+					<div class="speaker-image col-sm-3 col-xs-12 text-left">
 						<?php echo wp_get_attachment_image( $session_server_image, 'full', false, array( 'class' => 'thumbnail img-responsive','style="margin-top: 20px"' ) ); ?>
 					</div>
 					<div class="col-sm-9 col-xs-12 text-left">

@@ -24,8 +24,9 @@ table th { text-align: center; }
 
 /* ヘッダー */
 header { /* ヘッダーナビゲーション */ }
-header #site-navigation ul { width: 1000px; margin: auto; padding: 0; list-style-type: none; }
+header #site-navigation ul { width: 100%; max-width: 1000px; margin: auto; padding: 0; list-style-type: none; }
 header #site-navigation ul li img { width: auto; opacity: 0.5; }
+header #site-navigation ul li a { display: block; }
 header #site-navigation ul li a img { opacity: 1; }
 
 /* コンテンツ */

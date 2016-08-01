@@ -14,7 +14,7 @@ header #site-navigation { padding: 20px 15px 25px; background: url(../images/nav
 .section:nth-child(odd) { background: #fff; }
 .section:nth-child(even) { background: #fefbe4; }
 
-.section-inner { width: 1000px; margin: 0 auto; overflow: hidden; }
+.section-inner { width: 100%; max-width: 1000px; margin: 0 auto; overflow: hidden; }
 .section-inner .sub-title { text-align: center; }
 .section-inner h3 { color: #0e6939; font-weight: bold; }
 .section-inner ul { padding: 0; list-style-type: none; }
