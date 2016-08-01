@@ -118,13 +118,10 @@ function pdc_get_remains( $atts ) {
 		)
 	);
 	
-	$session_total   = 250;
 	$session_remains = $GLOBALS['camptix']->get_remaining_tickets( 230 );
 	$session_sale    = intval( get_post_meta( 230, 'tix_coupon_quantity', true ) ) - $session_remains;
-	$party_total     = 100;
 	$party_remains   = $GLOBALS['camptix']->get_remaining_tickets( 235 );
 	$party_sale      = intval( get_post_meta( 235, 'tix_coupon_quantity', true ) ) - $party_remains;
-	$stay_total      = 48;
 	$stay_remains    = $GLOBALS['camptix']->get_remaining_tickets( 236 );
 	$stay_sale       = intval( get_post_meta( 236, 'tix_coupon_quantity', true ) ) - $saty_remains;
 	
@@ -132,7 +129,8 @@ function pdc_get_remains( $atts ) {
 		
 		case 230:
 			// セッションのみ
-			$remains = $session_remains + $party_remains + $saty_remains;
+			//$remains = $session_remains + $party_remains + $saty_remains;
+			$remains = $session_remains + $party_remains + $stay_remains;
 			break;
 		
 		case 235:
