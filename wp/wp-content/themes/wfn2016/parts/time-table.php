@@ -19,6 +19,7 @@
 	<div class="section-inner text-left clearfix">
 	
 	<p>お断り: セッションの内容は、予告なしに変更される場合がございます。予めご了承ください</p>
+	<p>お断り: リンクが貼られていないページは、内容が確定しておりません。情報が確定し次第、詳細ページを掲載いたします。</p>
 	<div class="table-responsive">
 	<table class="table table-bordered time-table">
 		<col class="time" width="20%">
