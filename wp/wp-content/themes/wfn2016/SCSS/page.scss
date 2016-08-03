@@ -279,6 +279,20 @@
 	}
 } // #main
 
+#sessions {
+	
+	#main {
+		
+		table {
+			
+			th {
+				background: $bgColor;
+			}
+		}
+	}
+} // #sessions
+
+
 @media screen and ( max-width: 767px ) {
 	
 	.site-header {
@@ -354,4 +368,25 @@
 		
 		
 	} // #main
+	
+	#sessions {
+		
+		#main {
+			
+			table {
+				display: block;
+				width: 100%;
+				
+				thead,
+				tbody,
+				col,
+				tr,
+				th,
+				td {
+					display: block;
+					width: 100%;
+				}
+			}
+		}
+	}
 }

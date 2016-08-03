@@ -79,6 +79,8 @@
 #main .page-navi .next { padding-right: 0; }
 #main .page-navi .next a { display: block; padding-right: 25px; background: url(../images/common/bg-next.png) right 0.1em no-repeat; }
 
+#sessions #main table th { background: #fefbe4; }
+
 @media screen and (max-width: 767px) { .site-header { height: auto; background-position: center top; }
   .site-header .main-image { height: auto; }
   .site-header #signboard { position: relative; width: 100%; height: auto; padding: 55px 30px 30px; background-size: 100% auto; background-position: center bottom; }
@@ -92,6 +94,8 @@
   #main.archive .text-box h2 .date, #main.archive .text-box h2 .title { display: block; float: none; width: 100%; }
   #main.archive .text-box h2 .date { padding: 0 0 3px; }
   #main .section { margin-bottom: 0; }
-  #main .section .article-title { margin: 0; } }
+  #main .section .article-title { margin: 0; }
+  #sessions #main table { display: block; width: 100%; }
+  #sessions #main table thead, #sessions #main table tbody, #sessions #main table col, #sessions #main table tr, #sessions #main table th, #sessions #main table td { display: block; width: 100%; } }
 
 /*# sourceMappingURL=page.css.map */

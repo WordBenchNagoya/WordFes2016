@@ -19,9 +19,8 @@
 	<div class="section-inner text-left clearfix">
 	
 	<p>お断り: セッションの内容は、予告なしに変更される場合がございます。予めご了承ください</p>
-	<p>お断り: リンクが貼られていないページは、内容が確定しておりません。情報が確定し次第、詳細ページを掲載いたします。</p>
-	<p class="visible-xs" style="font-weight: bold; color: #c33;">※タイムテーブルは横にスクロールします。</p>
-	<div class="table-responsive">
+	<!-- <p class="visible-xs" style="font-weight: bold; color: #c33;">※タイムテーブルは横にスクロールします。</p> -->
+	<div>
 	<table class="table table-bordered time-table">
 		<col class="time" width="20%">
 		<col class="stage1" width="20%">
@@ -91,9 +90,9 @@
 		<tr>
 			<th>10:40〜11:00</th>
 			<td>開会式</td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td class="hidden-xs"></td>
+			<td class="hidden-xs"></td>
+			<td class="hidden-xs"></td>
 		</tr>
 		<tr class="session1">
 			<th><strong>─ SESSION1 ─</strong><br />
@@ -113,10 +112,10 @@
 
 		<tr>
 			<th>11:45〜13:15</th>
-			<td class="rest">昼食休憩（90分）<br /><!-- <a href="/lunch-meetup/" target="_blank"> -->Lunch MeetUp!<!-- </a> --></td>
-			<td class="rest">昼食休憩（90分）</td>
-			<td class="rest">昼食休憩（90分）<!-- <a href="http://2014.wordfes.org/sessions/lunch-workshop/">ランチタイムハンズオン</a> --></td>
-			<td class="rest">昼食休憩（90分）</td>
+			<td class="rest">昼食休憩（90分）<br /><!-- <a href="/lunch-meetup/" target="_blank"> -->Lunch MeetUp!<!-- </a> --><br class="visible-xs"><span class="visible-xs">5214教室</span></td>
+			<td class="rest hidden-xs">昼食休憩（90分）</td>
+			<td class="rest hidden-xs">昼食休憩（90分）<!-- <a href="http://2014.wordfes.org/sessions/lunch-workshop/">ランチタイムハンズオン</a> --></td>
+			<td class="rest hidden-xs">昼食休憩（90分）</td>
 		</tr>
 
 		<tr class="session2">
@@ -183,14 +182,14 @@
 				16:05〜16:50
 			</th>
 			<td>LT大会</td>
-			<td>&nbsp;</td>
-			<td></td>
-			<td></td>
+			<td class="hidden-xs">&nbsp;</td>
+			<td class="hidden-xs">&nbsp;</td>
+			<td class="hidden-xs">&nbsp;</td>
 		</tr>
 	</table>
 	</div><!-- .table-responsive -->
 	
-	<div class="table-responsive">
+	<div>
 	<table class="table table-bordered time-table">
 		<col class="col" width="20%">
 		<tr>
@@ -212,7 +211,7 @@
 	</table>
 	</div><!-- .table-responsive -->
 	
-	<div class="table-responsive">
+	<div>
 	<table class="table table-bordered time-table">
 		<col class="col" width="20%">
 		<tr>
