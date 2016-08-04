@@ -10,11 +10,13 @@
 			
 			<a href="http://2016.wordfes.org/topics/session-information-vol01/" style="display: block;">
 			<div id="signboard">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/top/img-signboard.png" alt="セッション内容準備中">
+					&nbsp;
 			</div>
-			
-			<div class="cover hidden-xs">&nbsp;</div>
 			</a>
+			
+<!-- 			<div class="cover hidden-xs">&nbsp;</div> -->
+			<div class="cover-upper hidden-xs">&nbsp;</div>
+			<div class="cover-lower hidden-xs">&nbsp;</div>
 			
 			<?php
 			if ( is_single() ):

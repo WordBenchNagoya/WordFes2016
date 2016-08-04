@@ -34,6 +34,11 @@ jQuery(document).ready(function(){
 	
 	jQuery('.schedule-inner').tile(3);
 	
+
+	jQuery(".menu-open").on("click", function() {
+		jQuery('.navigation-menu ul').slideToggle();
+		console.log( 'Menu Open.' );
+	});
 });
 
 jQuery(window).resize(function(){

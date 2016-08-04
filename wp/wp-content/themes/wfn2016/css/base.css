@@ -24,7 +24,7 @@ table th { text-align: center; }
 
 /* ヘッダー */
 header { /* ヘッダーナビゲーション */ }
-header #site-navigation ul { width: 100%; max-width: 1000px; margin: auto; padding: 0; list-style-type: none; }
+header #site-navigation ul { width: 100%; max-width: 1000px; margin: auto; padding: 10px 0 5px; background: #fff; border-radius: 10px; list-style-type: none; }
 header #site-navigation ul li img { width: auto; opacity: 0.5; }
 header #site-navigation ul li a { display: block; }
 header #site-navigation ul li a img { opacity: 1; }
@@ -42,7 +42,10 @@ header #site-navigation ul li a img { opacity: 1; }
 /*
 // スマホ
 */
-@media screen and (max-width: 767px) { header #site-navigation ul { width: 100%; }
-  header #site-navigation ul li { text-align: left; } }
+@media screen and (max-width: 767px) { .site-header #site-navigation { position: absolute; top: 0; width: 100%; padding: 0; background-image: none; }
+  .site-header #site-navigation .menu-bar { width: 100%; height: 40px; margin: 0; padding: 5px 10px; background: #0e6939; line-height: 1; text-align: right; }
+  .site-header #site-navigation .menu-bar .menu-open { width: 20px; height: 20px; margin: 5px; }
+  .site-header #site-navigation ul { display: none; width: 100%; z-index: 9998; border-radius: 0; }
+  .site-header #site-navigation ul li { z-index: 9999; text-align: left; } }
 
 /*# sourceMappingURL=base.css.map */

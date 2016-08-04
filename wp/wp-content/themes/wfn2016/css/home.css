@@ -4,10 +4,19 @@
 /* カラー */
 /* トップページ */
 header { /* ヘッダーナビゲーション */ }
-header .main-image { position: relative; overflow: hidden; width: 100%; height: 1188px; background: #fefbe4; }
-header .main-image .cover { position: absolute; top: 0; width: 100%; height: 100%; background: url(../images/top/front-main-image.png) center center repeat-x; }
+header .main-image { position: relative; overflow: hidden; width: 100%; height: 1188px; background: #fefbe4; /*
+.cover {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: url(../images/top/front-main-image.png) center center repeat-x;
+}
+*/ }
+header .main-image .cover-upper { position: absolute; top: 0; width: 100%; height: 275px; background: url(../images/top/front-upper-image.png) center top no-repeat; }
+header .main-image .cover-lower { position: absolute; bottom: 0; width: 100%; height: 412px; background: url(../images/top/front-lower-image.png) center bottom no-repeat; }
 header .site-title { margin: 150px auto 0; }
-header #signboard { position: absolute; right: 0; bottom: 225px; left: 0; width: 735px; height: 422px; margin: auto; }
+header #signboard { position: absolute; right: 0; bottom: 225px; left: 0; width: 735px; height: 422px; margin: auto; background: url(../images/top/img-signboard.png) center center no-repeat; }
 header #site-navigation { padding: 20px 15px 25px; background: url(../images/navigation/bg-navigation.png) center bottom repeat-x; }
 
 .section { width: 100%; }
@@ -28,12 +37,14 @@ header #site-navigation { padding: 20px 15px 25px; background: url(../images/nav
 .section-inner .remains.green { color: #0e6939; }
 .section-inner .button-box { margin: 30px 0; }
 
-@media screen and (max-width: 767px) { header .main-image { height: auto; padding: 30px 10px 0; }
+@media screen and (max-width: 767px) { header .main-image { height: auto; margin-top: 40px; padding: 30px 10px 0; }
   header .main-image img { width: 100%; }
   header .site-title { margin-top: 0; }
   header #signboard { position: relative; top: 0; bottom: 0; width: 100%; height: auto; margin: 20px 0 0; }
   #sec-about .left-box { padding-bottom: 20px; text-align: center; }
   .section-inner { width: 100%; }
+  .section-inner .pickup-item { text-align: center; }
+  .section-inner .pickup-item img { margin: auto; }
   .schedule { margin-bottom: 20px; }
   .schedule:last-child { margin-bottom: 0; } }
 

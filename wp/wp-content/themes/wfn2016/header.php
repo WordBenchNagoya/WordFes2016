@@ -73,6 +73,8 @@ if ( is_front_page() ) {
 			
 			<div class="navigation-menu clearfix text-center">
 				
+				<p class="menu-bar visible-xs"><img class="menu-open" src="<?php echo get_template_directory_uri(); ?>/images/navigation/btn-open.png" alt="open"></p>
+				
 				<ul class="clearfix text-center">
 					<li class="col-sm-2 col-xs-12">
 						<a href="<?php echo esc_url( home_url('/') ); ?>">
@@ -111,5 +113,17 @@ if ( is_front_page() ) {
 		</nav><!-- #site-navigation -->
 		
 	</header><!-- #masthead -->
+	
+	<?php if ( is_page() || is_single() || is_archive() ): ?>
+	<!--
+	<div class="bread-crumb">
+		
+		<ul>
+			<li><a href="<?php home_url('/'); ?>">トップページ</a> &gt;</li>
+		</ul>
+		
+	</div>
+	-->
+	<?php endif; ?>
 
 	<div id="content" class="site-content">

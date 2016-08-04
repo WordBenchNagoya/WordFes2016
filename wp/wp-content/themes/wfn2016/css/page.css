@@ -22,7 +22,6 @@
 .site-header .site-title img { width: 70%; height: auto; }
 .site-header .page-title { line-height: .8; font-weight: normal; font-size: 2rem; color: #046a37; }
 .site-header .page-title span { font-size: 1.14rem; color: #777; }
-.site-header #site-navigation ul { padding: 10px 0 5px; background: #fff; border-radius: 10px; }
 
 #primary { width: 100%; max-width: 1000px; margin: auto; /*
 	.section {
@@ -82,7 +81,7 @@
 #sessions #main table th { background: #fefbe4; }
 
 @media screen and (max-width: 767px) { .site-header { height: auto; background-position: center top; }
-  .site-header .main-image { height: auto; }
+  .site-header .main-image { height: auto; margin-top: 40px; }
   .site-header #signboard { position: relative; width: 100%; height: auto; padding: 55px 30px 30px; background-size: 100% auto; background-position: center bottom; }
   .site-header #signboard .site-title { margin-bottom: 10px; }
   .site-header #signboard .site-title img { width: 65%; }
