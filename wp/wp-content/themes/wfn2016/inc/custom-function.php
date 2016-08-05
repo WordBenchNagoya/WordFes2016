@@ -280,6 +280,31 @@ function inside_district_column( $column_name ) {
 			
 		}
 		
+	} elseif ( 'tix_attendee' == $post->post_type && 'tix_name' == $column_name ) {
+		
+		$attendees = get_posts( array(
+			'p'              => $post->ID,
+			'posts_per_page' => 1,
+			'post_type' => 'tix_attendee',
+			'post_status' => array( 'pending', 'publish' ),
+			'cache_results' => false,
+		) );
+		
+		$terms = get_post_meta( $post->ID, 'tix_log' );
+		$name  = $terms[0][0]['data']['post']['tix_attendee_questions'][1][239];
+		
+		if ( $name ) {
+			
+			echo esc_html( $name );
+			
+		} else {
+			
+			echo '---';
+			
+		}
+
+		//echo '<pre>'; var_dump( $terms[0][0]['data']['post']['tix_attendee_questions'][1][239] ); echo '</pre>';
+		
 	}
 	
 }
