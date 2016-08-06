@@ -80,6 +80,8 @@
 
 #sessions #main table th { background: #fefbe4; }
 
+#entry #main .tix-column-remaining { display: none; }
+
 @media screen and (max-width: 767px) { .site-header { height: auto; background-position: center top; }
   .site-header .main-image { height: auto; margin-top: 40px; }
   .site-header #signboard { position: relative; width: 100%; height: auto; padding: 55px 30px 30px; background-size: 100% auto; background-position: center bottom; }

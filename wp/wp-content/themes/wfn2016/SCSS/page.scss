@@ -283,6 +283,15 @@
 	}
 } // #sessions
 
+#entry {
+	
+	#main {
+		
+		.tix-column-remaining {
+			display: none;
+		}
+	}
+}
 
 @media screen and ( max-width: 767px ) {
 	
