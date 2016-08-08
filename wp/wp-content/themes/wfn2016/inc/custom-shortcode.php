@@ -118,30 +118,33 @@ function pdc_get_remains( $atts ) {
 		)
 	);
 	
+	$adjust          = 0;
+	
 	$session_remains = $GLOBALS['camptix']->get_remaining_tickets( 230 );
 	$session_sale    = intval( get_post_meta( 230, 'tix_coupon_quantity', true ) ) - $session_remains;
 	$party_remains   = $GLOBALS['camptix']->get_remaining_tickets( 235 );
 	$party_sale      = intval( get_post_meta( 235, 'tix_coupon_quantity', true ) ) - $party_remains;
 	$stay_remains    = $GLOBALS['camptix']->get_remaining_tickets( 236 );
-	$stay_sale       = intval( get_post_meta( 236, 'tix_coupon_quantity', true ) ) - $saty_remains;
+	$stay_sale       = intval( get_post_meta( 236, 'tix_coupon_quantity', true ) ) - $stay_remains;
 	
 	switch ( $post_id ) {
 		
 		case 230:
 			// セッションのみ
 			//$remains = $session_remains + $party_remains + $saty_remains;
-			$remains = $session_remains + $party_remains + $stay_remains;
+			$remains = $session_remains + $party_remains + $stay_remains + $adjust;
 			break;
 		
 		case 235:
 			// 懇親会
 			//$remains = $party_remains + $stay_remains - 3;
-			$remains = $party_remains + $stay_remains;
+			//$remains = $party_remains + $stay_remains + $adjust;
+			$remains = $party_remains + $adjust;
 			break;
 			
 		case 236:
 			// 宿泊
-			$remains = $stay_remains;
+			$remains = $stay_remains + $adjust;
 			break;
 			
 		default:
