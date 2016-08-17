@@ -18,13 +18,13 @@
 .recommended li { padding: 5px 0 5px 20px; background: url(../images/common/list-mark-gr.png) 0.5em 0.7em no-repeat; }
 
 dd .target { margin-top: 5px; line-height: 1; }
-dd .target span { display: inline-block; margin: 2px; padding: 5px 7px; font-size: 0.71rem; font-weight: bold; }
-dd .target span.level_alluser { background: #3cb6c4; color: #fff; }
-dd .target span.level_beginer { background: #f04b4b; color: #fff; }
-dd .target span.level_frontend { background: #73be43; color: #fff; }
-dd .target span.level_bloger { background: #3563b9; color: #fff; }
-dd .target span.level_webtan { background: #ffec39; }
-dd .target span.level_webdesign { background: #a25bff; color: #fff; }
+dd .target span { display: inline-block; margin: 2px; padding: 5px 7px; font-size: 0.71rem; font-weight: bold; border-radius: 3px; }
+dd .target span.level_alluser { background: #00A7EA; color: #fff; }
+dd .target span.level_beginer { background: #00A95F; color: #fff; }
+dd .target span.level_frontend { background: #915DA3; color: #fff; }
+dd .target span.level_bloger { background: #F08300; color: #fff; }
+dd .target span.level_webtan { background: #187FC4; color: #fff; }
+dd .target span.level_webdesign { background: #E73656; color: #fff; }
 
 @media screen and (max-width: 767px) { #primary #main .speaker-image img { max-width: 300px; margin: auto; }
   #primary #main .social-icon a.facebook-icon, #primary #main .social-icon a.twitter-icon, #primary #main .social-icon a.website-icon { display: block; width: 100%; padding: 5px 10px 5px 23px; } }
