@@ -290,14 +290,16 @@ function wordfes2016_timetable_meta( $timezone, $stage ){
 					<span class="visible-xs visible-sm"><?php echo esc_html( $stage->name ); ?></span>
 					
 				<?php endif; ?>
+					<p class="target">
 			<?php
-				//$target_terms = get_the_terms( $session->ID, 'target' );
-				//foreach ( $target_terms as $key => $target ) {
+				$target_terms = wp_get_post_terms( $session->ID, 'target', array('orderby' => 'order', 'order' => 'DESC') );
+				foreach ( $target_terms as $key => $target ) {
 			?>
-<!--             <i class="level_<?php echo esc_html( $target->slug );?> level_icon"><?php echo esc_html( $target->name );?></i> -->
+            			<span class="level_<?php echo esc_html( $target->slug );?> level_icon"><?php echo esc_html( $target->name );?></span><br class="hidden-xs">
 			<?php
-				//}
+				}
 			?>
+					</p>
 					<?php //wordfes2016_entry_footer(); ?>
 				</dd>
 			<?php
