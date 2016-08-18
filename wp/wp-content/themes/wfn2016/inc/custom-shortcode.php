@@ -132,7 +132,8 @@ function pdc_get_remains( $atts ) {
 		case 230:
 			// セッションのみ
 			//$remains = $session_remains + $party_remains + $saty_remains;
-			$remains = $session_remains + $party_remains + $stay_remains + $adjust;
+			//$remains = $session_remains + $party_remains + $stay_remains + $adjust;
+			$remains = $session_remains + $adjust;
 			break;
 		
 		case 235:
