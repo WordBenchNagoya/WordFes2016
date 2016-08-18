@@ -287,9 +287,9 @@ function wordfes2016_timetable_meta( $timezone, $stage ){
 				<?php if ( $speaker = get_field( 'session_speaker_name', $session->ID ) ): ?>
 				
 					<i class="glyphicon glyphicon-user"></i> <?php echo esc_html( $speaker ) ?><br>
-					<span class="visible-xs visible-sm"><?php echo esc_html( $stage->name ); ?></span>
 					
 				<?php endif; ?>
+					<span class="visible-xs visible-sm"><?php echo esc_html( $stage->name ); ?></span>
 					<p class="target">
 			<?php
 				$target_terms = wp_get_post_terms( $session->ID, 'target', array('orderby' => 'order', 'order' => 'DESC') );
