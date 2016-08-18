@@ -158,5 +158,41 @@ function wordfes2016_post_type_init() {
 	);
 
 	register_post_type( 'staff', $staff_args );
+	
+
+	/*
+	 * カスタム投稿タイプ「スライダー」を追加
+	 */
+	$staff_labels = array(
+		'name' => 'スライダー',
+		'singular_name' => 'スライダー',
+		'add_new' => '新しいスライダー',
+		'add_new_item' => '新しいスライダーを登録',
+		'edit_item' => 'スライダーを編集',
+		'new_item' => '新しいスライダーを登録',
+		'all_items' => 'すべてのスライダー',
+		'view_item' => 'スライダーを見る',
+		'search_items' => 'スライダーを検索',
+		'not_found' => 'スライダーは見つかりませんでした。',
+		'not_found_in_trash' => 'ゴミ箱の中にスライダーはありませんでした',
+		'parent_item_colon' => '',
+		'menu_name' => 'スライダー',
+	);
+
+	$slider_args = array(
+		'labels' => $staff_labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'query_var' => true,
+		'rewrite' => array( 'slug' => 'staff' ),
+		'capability_type' => 'page',
+		'has_archive' => true,
+		'hierarchical' => false,
+		'supports' => array( 'title' ),
+	);
+
+	register_post_type( 'slider', $slider_args );
 }
 
