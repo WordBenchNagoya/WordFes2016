@@ -39,6 +39,8 @@ get_header(); ?>
 			
 			</div>
 		
+			<div class="pagenavi"><?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?></div>
+
 		</main><!-- #main -->
 		
 		<?php get_sidebar(); ?>
