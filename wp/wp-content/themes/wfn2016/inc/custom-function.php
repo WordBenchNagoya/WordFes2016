@@ -266,6 +266,9 @@ function manage_posts_columns($columns) {
 		$columns['thumb']   = '画像';
 		
 		$columns['title']   = $title_escape; // ここでタイトルを戻す
+		
+		$columns['link']    = 'リンク'; // ここでタイトルを戻す
+		
 		$columns['author']  = '投稿者'; // ここで投稿者を戻す
 		$columns['date']    = $date_escape; // ここで日付を戻す
 		
@@ -303,6 +306,12 @@ function inside_district_column( $column_name ) {
 		$thumb = wp_get_attachment_image_src( get_field('wfn-slider-image'), 'full' );
 		
 		echo '<img src="' . esc_url( $thumb[0] ) . '" alt="サムネール" width="100%" height="auto">';
+		
+	} elseif ( 'slider' == $post->post_type && 'link' == $column_name ) {
+
+		$url = get_field('wfn-slider-url');
+		
+		echo esc_url( $url );
 		
 	} elseif ( 'tix_attendee' == $post->post_type && 'tix_name' == $column_name ) {
 		

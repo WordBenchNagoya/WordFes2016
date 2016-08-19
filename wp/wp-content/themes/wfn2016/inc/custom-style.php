@@ -56,6 +56,10 @@ echo <<<Eof
 th#thumb {
 	width: 150px;
 }
+
+th#wpseo-score-readability {
+	width: 100px;
+}
 </style>
 Eof;
 
