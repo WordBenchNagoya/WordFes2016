@@ -248,7 +248,7 @@ function manage_posts_columns($columns) {
 		
 		$columns['display'] = '表示';
 		
-		$columns['author']  = $author_escape; // ここで投稿者を戻す
+		$columns['author']  = '投稿者'; // ここで投稿者を戻す
 		$columns['date']    = $date_escape; // ここで日付を戻す
 		
 	} elseif ( 'slider' == $post->post_type ) {
@@ -266,7 +266,7 @@ function manage_posts_columns($columns) {
 		$columns['thumb']   = '画像';
 		
 		$columns['title']   = $title_escape; // ここでタイトルを戻す
-		$columns['author']  = $author_escape; // ここで投稿者を戻す
+		$columns['author']  = '投稿者'; // ここで投稿者を戻す
 		$columns['date']    = $date_escape; // ここで日付を戻す
 		
 	}
