@@ -236,7 +236,7 @@ function manage_posts_columns($columns) {
 	
 	if ( 'supporter' == $post->post_type ) { // ポストタイプを指定
 	
-		$date_escape = $columns['date']; // 日付を避難
+		$date_escape   = $columns['date']; // 日付を避難
 		$author_escape = $columns['author']; // 投稿者を退避
 		$type_escape   = $columns['supporter_type'];
 		$option_escape = $columns['supporter_option'];
@@ -248,6 +248,24 @@ function manage_posts_columns($columns) {
 		
 		$columns['display'] = '表示';
 		
+		$columns['author']  = $author_escape; // ここで投稿者を戻す
+		$columns['date']    = $date_escape; // ここで日付を戻す
+		
+	} elseif ( 'slider' == $post->post_type ) {
+		
+		$title_escape  = $columns['title']; // タイトルを避難
+		$date_escape   = $columns['date']; // 日付を避難
+		$author_escape = $columns['author']; // 投稿者を退避
+		
+		unset($columns['title']); // 消す
+		unset($columns['date']); // 消す
+		unset($columns['author']); // 消す
+		unset($columns['supporter_type']);
+		unset($columns['supporter_option']);
+		
+		$columns['thumb']   = '画像';
+		
+		$columns['title']   = $title_escape; // ここでタイトルを戻す
 		$columns['author']  = $author_escape; // ここで投稿者を戻す
 		$columns['date']    = $date_escape; // ここで日付を戻す
 		
@@ -279,6 +297,12 @@ function inside_district_column( $column_name ) {
 			echo '';
 			
 		}
+		
+	} elseif ( 'slider' == $post->post_type && 'thumb' == $column_name ) {
+
+		$thumb = wp_get_attachment_image_src( get_field('wfn-slider-image'), 'full' );
+		
+		echo '<img src="' . esc_url( $thumb[0] ) . '" alt="サムネール" width="100%" height="auto">';
 		
 	} elseif ( 'tix_attendee' == $post->post_type && 'tix_name' == $column_name ) {
 		

@@ -46,3 +46,31 @@ Eof;
 add_action ( 'login_head', 'custom_wp_login' );
 
 
+/*
+// 管理画面カスタマイズ
+*/
+function custom_admin_head() {
+
+echo <<<Eof
+<style type="text/css">
+th#thumb {
+	width: 150px;
+}
+</style>
+Eof;
+
+if ( ! current_user_can('edit_user') ) {
+	
+// クイック編集を非表示にする
+echo <<<Eof
+<style type="text/css">
+.has-row-actions .inline {
+	display: none;
+}
+</style>
+Eof;
+
+}
+
+}
+add_action( 'admin_head', 'custom_admin_head' );
