@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header('test'); ?>
 	
 	<div id="primary" class="content-area clearfix">
 		<main id="main" class="site-main col-md-9 col-xs-12" role="main">
