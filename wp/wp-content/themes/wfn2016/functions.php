@@ -111,12 +111,18 @@ function wordfes2016_scripts() {
 	// font
 
 	// css
-	wp_enqueue_style( 'wfn2016-base', get_template_directory_uri() . '/css/base.css' );
+	wp_enqueue_style( 'wfn2016-base',      get_template_directory_uri() . '/css/base.css' );
 	wp_enqueue_style( 'wfn2016-supporter', get_template_directory_uri() . '/css/supporter.css' );
+	wp_enqueue_style( 'wfn2016-slider',    get_template_directory_uri() . '/css/jquery.bxslider.css' );
 	
 	if( is_front_page() ) {
 		
 		wp_enqueue_style( 'wfn2016-home', get_template_directory_uri() . '/css/home.css' );
+		
+	} elseif ( is_page('test') ) {
+		
+		wp_enqueue_style( 'wfn2016-home', get_template_directory_uri() . '/css/home.css' );
+		wp_enqueue_style( 'wfn2016-test', get_template_directory_uri() . '/css/test.css' );
 		
 	} elseif ( is_singular('sessions') || is_page('sessions') ) {
 		
@@ -147,6 +153,7 @@ function wordfes2016_scripts() {
 	wp_enqueue_script( 'wordfes2016-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), null, true );
 	wp_enqueue_script( 'wordfes2016-tile', get_template_directory_uri() . '/js/tile.js', array(), null, true );
 	wp_enqueue_script( 'wordfes2016-scripts', get_template_directory_uri() . '/js/scripts.js', array(), null, true );
+	wp_enqueue_script( 'wordfes2016-slider', get_template_directory_uri() . '/js/jquery.bxslider.min.js', array(), null, true );
 
 	// bootstrap
 	wp_enqueue_script( 'wordfes2016-bootstrap', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array( 'jquery' ), null, true );
@@ -158,6 +165,33 @@ function wordfes2016_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'wordfes2016_scripts' );
+
+
+/**
+ * Enqueue scripts and styles.
+ */
+function custom_pre_get_posts( $query ) {
+
+	if ( ! is_admin() ) {
+		
+		if ( is_user_logged_in() ) {
+			
+			if ( 'post' == $query->query_vars['post_type'] || 'topics' == $query->query_vars['post_type'] ) {
+			
+				$query->set( 'post_status', array( 'publish', 'draft', 'private' ) );
+			
+			}
+			
+		}
+
+	}
+	
+	//echo '<pre>'; var_dump( $query->query_vars['post_type'] ); echo '</pre>';
+	
+	return $query;
+	
+}
+add_action( 'pre_get_posts', 'custom_pre_get_posts' );
 
 
 

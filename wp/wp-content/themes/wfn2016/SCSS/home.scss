@@ -13,8 +13,10 @@ header {
 		width: 100%;
 		height: 1188px;
 		//background: url(../images/top/bg-main-image.png) center center repeat-x;
-		background: $bgColor;
+		//background: $bgColor;
+		background: url(../images/top/bg-main.png) center center no-repeat;
 		
+		/*
 		.cover-upper {
 			position: absolute;
 			top: 0;
@@ -30,6 +32,7 @@ header {
 			height: 412px;
 			background: url(../images/top/front-lower-image.png) center bottom no-repeat;
 		}
+		*/
 		
 		/*
 		.cover {
@@ -46,6 +49,7 @@ header {
 		margin: 150px auto 0;
 	}
 	
+	/*
 	#signboard {
 		position: absolute;
 		right: 0;
@@ -55,6 +59,40 @@ header {
 		height: 422px;
 		margin: auto;
 		background: url(../images/top/img-signboard.png) center center no-repeat;
+	}
+	*/
+	
+	#signboard {
+		position: absolute;
+		right: 0;
+		bottom: 305px;
+		left: 55px;
+		width: 550px;
+		height: 280px;
+		margin: auto;
+		background: none;
+		
+		.bx-wrapper .bx-viewport {
+			background: transparent;
+			border: none;
+			moz-box-shadow: none;
+			webkit-box-shadow: none;
+			box-shadow: none;
+		}
+	}
+
+	.bxslider {
+		margin: 0;
+		padding: 0;
+		
+		li {
+			
+			img {
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+		}
 	}
 
 	/*
@@ -155,16 +193,18 @@ header {
 			height: auto;
 			margin-top: 40px;
 			padding: 30px 10px 0;
+			background: none;
 
 			img {
 				width: 100%;
 			}
 		}
-		
+
 		.site-title {
 			margin-top: 0;
 		}
 		
+		/*
 		#signboard {
 			position: relative;
 			top: 0;
@@ -172,6 +212,25 @@ header {
 			width: 100%;
 			height: auto;
 			margin: 20px 0 0;
+		}
+		*/
+		
+		#signboard {
+			position: relative;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: auto;
+			margin: 0 0 30px;
+			padding: 60px 50px 60px 50px;
+			background: url(../images/top/bg-signbord.png) center center no-repeat;
+			background-size: 100%;
+		}
+		
+		.bx-wrapper .bx-viewport {
+			right: 0;
+			left: 0;
 		}
 	}
 	
