@@ -57,7 +57,6 @@
 				?>
 			</tr>
 		</thead>
-		<!--
 		<tr class="hidden-sm hidden-xs">
 			<th>
 			</th>
@@ -76,12 +75,11 @@
 			<th>
 			</th>
 			<td colspan="3">
- 			<small>※ Ustream 放送や YouTube の詳細は<a href="/topics/ustream-youtube/">こちらをご覧ください</a>。</small>
+ 			<small>※ Ustream 放送や YouTube の詳細は<a href="/topics/1267/">こちらをご覧ください</a>。</small>
 			</td>
 			<td>
 			</td>
 		</tr>
-		-->
 		<tr>
 			<th>10:00〜</th>
 			<td colspan="4" class="rest">開場</td>
