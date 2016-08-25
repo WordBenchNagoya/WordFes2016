@@ -125,7 +125,7 @@ class wp_ustream_status_widget extends WP_Widget {
         			$output .= '" target="_blank">';
         			$output .= "<img src=\"$online\" alt=\"";
         			$output .= __('Live now');
-        			$output .= '" target="_blank" />';
+        			$output .= '" style="max-width: 100%;" />';
         			$output .= "</a>";
         			echo $output;
     		// ONLINE part ends here
@@ -137,7 +137,7 @@ class wp_ustream_status_widget extends WP_Widget {
         			$output .= ' target="_blank">';
         			$output .= "<img src=\"$offline\" alt=\"";
         			$output .= __('Offline');
-        			$output .= '" />';
+        			$output .= '" style="max-width: 100%;" />';
         			$output .= '</a>';
         			echo $output;
     			break;
