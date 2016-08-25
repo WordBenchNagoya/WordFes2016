@@ -120,25 +120,25 @@ class wp_ustream_status_widget extends WP_Widget {
     		// Decode JSON
     		switch ($UstChannelStatus) {
     			case 'live':
-        			$output = "<div align=\"center\"><a href=\"http://www.ustream.tv/channel/$account\" alt=\"";
+        			$output = "<a href=\"http://www.ustream.tv/channel/$account\" alt=\"";
         			$output .= __('Click here to visit the Ustream channel');
         			$output .= '" target="_blank">';
         			$output .= "<img src=\"$online\" alt=\"";
         			$output .= __('Live now');
         			$output .= '" target="_blank" />';
-        			$output .= "</a></div>";
+        			$output .= "</a>";
         			echo $output;
     		// ONLINE part ends here
     			break;
     			case 'offair':
         			// If not live, including when the API does not respond
-        			$output = "<div align=\"center\"><a href=\"http://www.ustream.tv/channel/$account\" alt=\"";
+        			$output = "<a href=\"http://www.ustream.tv/channel/$account\" alt=\"";
         			$output .= __('Click here to visit the Ustream channel');
         			$output .= ' target="_blank">';
         			$output .= "<img src=\"$offline\" alt=\"";
         			$output .= __('Offline');
         			$output .= '" />';
-        			$output .= '</a></div>';
+        			$output .= '</a>';
         			echo $output;
     			break;
     			default:
@@ -189,11 +189,11 @@ function ustream_status_shortcode($atts) {
     	    $output .= $account;
     	    $output .= '" alt="';
     	    $output .= __('Click here to visit the Ustream channel');
-    	    $output .= '" target="_blank"><img src="';
+    	    $output .= '" target="_blank"><br /><img src="';
     	    $output .= $online;
     	    $output .='" alt="';
     	    $output .= __('Live now');
-    	    $output .= '" target="_blank" /></a>';
+    	    $output .= '" target="_blank" /><br /></a>';
             // ONLINE part ends here
         break;
         case 'offair':
@@ -202,11 +202,11 @@ function ustream_status_shortcode($atts) {
     	    $output .= $account;
     	    $output .= '" alt="';
     	    $output .= __('Click here to visit the Ustream channel');
-    	    $output .= '" target="_blank"><img src="';
+    	    $output .= '" target="_blank"><br /><img src="';
     	    $output .= $offline;
     	    $output .= '" alt="';
     	    $output .= __('Offline');
-    	    $output .= '" /></a>';
+    	    $output .= '" /><br /></a>';
             break;
         default:
             $output = __('Error occured. We could not retrieve the data from Ustream.');
