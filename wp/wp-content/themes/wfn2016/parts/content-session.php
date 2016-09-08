@@ -33,7 +33,7 @@ $slide_data   = get_field( 'session_slide' );
 				?>
 					<p class="slide">
 						<a href="<?php echo esc_url( $slide_data );?>" target="_blank">
-						<img src="<?php echo get_template_directory_uri() ?>/images/common/arrow-sm.gif" alt=""> スライドはこちら
+						<img src="<?php echo get_template_directory_uri() ?>/images/common/list-mark-gr.png" alt=""> スライドはこちら
 						</a>
 					</p>
 				<?php
