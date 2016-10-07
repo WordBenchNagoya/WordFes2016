@@ -17,6 +17,9 @@
 					'posts_per_page' => -1,
 				);
 				$sliders   = new WP_Query( $args );
+				while ( $sliders->have_posts() ):
+					$sliders->the_post();
+				/*
 				$slide_ids  = array();
 				foreach( $sliders->posts as $slider ) {
 					
@@ -33,7 +36,7 @@
 						if ( $count >= $count_max ) {
 							break;
 						}
-					
+				*/	
 						$image = wp_get_attachment_image_src( get_field('wfn-slider-image', $slide), 'full' );
 						$url   = get_field('wfn-slider-url', $slide);
 				?>
@@ -43,9 +46,12 @@
 						</a>
 					</li>
 				<?php
+				/*
 						$count++;
 					endforeach;
 				endif;
+				*/
+				endwhile;
 				?>
 				</ul>
 			</div>
